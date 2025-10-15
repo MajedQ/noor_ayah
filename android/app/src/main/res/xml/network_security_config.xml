@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">everyayah.com</domain>
+        <domain includeSubdomains="true">www.everyayah.com</domain>
+        <domain includeSubdomains="true">server.everyayah.com</domain>
+    </domain-config>
+    
+    <!-- Allow HTTPS connections -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </base-config>
+</network-security-config>

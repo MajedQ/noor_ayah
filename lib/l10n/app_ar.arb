@@ -1,0 +1,204 @@
+{
+  "@@locale": "ar",
+  "appName": "نور آية",
+  "appSlogan": "من كل آية.. نور وهداية",
+  "today": "اليوم",
+  "categories": "الفئات",
+  "favorites": "المفضلة",
+  "search": "بحث",
+  "settings": "الإعدادات",
+  "verseOfTheDay": "آية اليوم",
+  "reflection": "التدبر",
+  "dua": "الدعاء",
+  "share": "مشاركة",
+  "copy": "نسخ",
+  "addToFavorites": "إضافة للمفضلة",
+  "removeFromFavorites": "إزالة من المفضلة",
+  "copiedToClipboard": "تم النسخ",
+  "addedToFavorites": "تمت الإضافة للمفضلة",
+  "removedFromFavorites": "تمت الإزالة من المفضلة",
+  "noVerses": "لا توجد آيات",
+  "noFavorites": "لا توجد آيات مفضلة",
+  "noFavoritesSubtitle": "ابدأ بإضافة آياتك المفضلة لتظهر هنا",
+  "noSearchResults": "لم يتم العثور على نتائج",
+  "noSearchResultsSubtitle": "جرّب كلمات بحث مختلفة",
+  "searchHint": "ابحث في الآيات، التدبر، أو السور...",
+  "searchInVerses": "ابحث في الآيات",
+  "searchStartMessage": "ابدأ بالبحث عن آية",
+  "searchStartSubtitle": "يمكنك البحث في نص الآية، التدبر، الدعاء، أو اسم السورة",
+  "darkMode": "الوضع الليلي",
+  "lightMode": "الوضع الفاتح",
+  "language": "اللغة",
+  "fontSize": "حجم الخط",
+  "fontSmall": "صغير",
+  "fontMedium": "متوسط",
+  "fontLarge": "كبير",
+  "selectLanguage": "اختر اللغة",
+  "selectLanguageMessage": "اختر لغتك المفضلة",
+  "continueButton": "متابعة",
+  "cancel": "إلغاء",
+  "ok": "حسناً",
+  "delete": "حذف",
+  "deleteAll": "مسح الكل",
+  "confirmDelete": "تأكيد الحذف",
+  "confirmDeleteMessage": "هل تريد إزالة هذه الآية من المفضلة؟",
+  "confirmDeleteAllMessage": "هل أنت متأكد من حذف جميع الآيات المفضلة؟\nلن تتمكن من التراجع عن هذا الإجراء.",
+  "clearAllFavorites": "مسح جميع المفضلة",
+  "allFavoritesCleared": "تم مسح جميع المفضلة",
+  "appearance": "المظهر",
+  "statistics": "الإحصائيات",
+  "about": "عن التطبيق",
+  "totalVerses": "إجمالي الآيات",
+  "categoriesCount": "عدد الفئات",
+  "favoritesCount": "الآيات المفضلة",
+  "youHaveFavorites": "لديك {count} آية مفضلة",
+  "@youHaveFavorites": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "versesInCategory": "{count} آية في هذه الفئة",
+  "@versesInCategory": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "searchResults": "تم العثور على {count} نتيجة",
+  "@searchResults": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shareApp": "مشاركة التطبيق",
+  "shareAppMessage": "جرّب تطبيق {appName} - {appSlogan}\n\nتطبيق تأملي رائع لعرض آيات القرآن الكريم مع التدبر والأدعية.",
+  "@shareAppMessage": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      },
+      "appSlogan": {
+        "type": "String"
+      }
+    }
+  },
+  "rateApp": "تقييم التطبيق",
+  "privacyPolicy": "سياسة الخصوصية",
+  "privacyPolicyTitle": "سياسة الخصوصية",
+  "privacyPolicyContent": "نحن نحترم خصوصيتك. هذا التطبيق:\n\n• لا يجمع أي بيانات شخصية\n• لا يتطلب اتصال بالإنترنت للعمل\n• جميع البيانات محفوظة محلياً على جهازك\n• لا نشارك أي معلومات مع أطراف ثالثة\n\nالتطبيق مفتوح المصدر ومجاني بالكامل.",
+  "version": "الإصدار {version}",
+  "@version": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "exploreMore": "استكشف المزيد",
+  "exploreMessage": "تصفح الآيات حسب الفئات أو ابحث عن آية معينة",
+  "verseDetails": "الآية والتدبر",
+  "detailsAndReflection": "التفاصيل والتدبر",
+  "previousVerse": "السابقة",
+  "nextVerse": "التالية",
+  "copyVerse": "نسخ الآية",
+  "back": "رجوع",
+  "verse": "آية",
+  "verses": "آيات",
+  "surah": "سورة",
+  "thanks": "شكراً لاهتمامك! سيتم إضافة رابط التقييم قريباً",
+  "noCategoryVerses": "لا توجد آيات في هذه الفئة",
+  "noCategoryVersesSubtitle": "جرّب البحث في فئات أخرى",
+  "backToCategories": "رجوع للفئات",
+  "exploreCategories": "استكشف الفئات",
+  "colorTheme": "ثيم الألوان",
+  "selectColorTheme": "اختر ثيم الألوان",
+  "classicTheme": "الكلاسيكي",
+  "nightTheme": "الليلي",
+  "roseTheme": "الوردي",
+  "classicThemeDesc": "أخضر وذهبي",
+  "nightThemeDesc": "أزرق وفضي",
+  "roseThemeDesc": "وردي وبنفسجي",
+  
+  "@_DUA_OF_DAY": {},
+  "duaOfTheDay": "دعاء اليوم",
+  "allDuas": "جميع الأدعية",
+  "duaDetails": "تفاصيل الدعاء",
+  "duaCategories": "فئات الأدعية",
+  "duaOccasions": "المناسبات",
+  "benefits": "الفائدة",
+  "source": "المصدر",
+  "shareAsImage": "مشاركة كصورة",
+  "shareAsText": "مشاركة كنص",
+  "selectTemplate": "اختر القالب",
+  "classicTemplate": "كلاسيكي",
+  "modernTemplate": "عصري",
+  "minimalTemplate": "بسيط",
+  "islamicTemplate": "إسلامي",
+  
+  "@_DAILY_WIRD": {},
+  "dailyWird": "الورد اليومي",
+  "myDailyWird": "وردي اليومي",
+  "createWird": "إنشاء ورد يومي",
+  "wirdProgress": "التقدم اليومي",
+  "consecutiveDays": "أيام متتالية",
+  "wirdCompleted": "تم إكمال الورد اليوم - بارك الله فيك",
+  "resetWird": "إعادة التعيين",
+  "addVerses": "إضافة آيات",
+  "addDuas": "إضافة أدعية",
+  "wirdName": "اسم الورد",
+  "preferredTime": "الوقت المفضل",
+  "morning": "الصباح",
+  "afternoon": "الظهر",
+  "evening": "المساء",
+  "night": "الليل",
+  "anytime": "أي وقت",
+  
+  "@_SYNC": {},
+  "contentSync": "مزامنة المحتوى",
+  "checkForUpdates": "التحقق من التحديثات",
+  "syncSettings": "إعدادات المزامنة",
+  "autoSync": "مزامنة تلقائية",
+  "syncFrequency": "تكرار المزامنة",
+  "manual": "يدوي",
+  "daily": "يومي",
+  "weekly": "أسبوعي",
+  "monthly": "شهري",
+  "currentVersion": "النسخة الحالية",
+  "lastSync": "آخر تحديث",
+  "updateAvailable": "تحديث جديد متاح",
+  "downloadAndInstall": "تحميل وتثبيت التحديث",
+  "newFeatures": "المميزات الجديدة",
+  "syncInProgress": "جاري المزامنة...",
+  "syncCompleted": "تم التحديث بنجاح",
+  "syncError": "حدث خطأ في المزامنة",
+  "upToDate": "أنت تستخدم أحدث نسخة",
+  
+  "@_ACHIEVEMENTS_EXTENDED": {},
+  "points": "النقاط",
+  "rank": "الرتبة",
+  "yourRank": "رتبتك",
+  "nextRank": "الرتبة التالية",
+  "pointsNeeded": "نقاط مطلوبة",
+  "progress": "التقدم",
+  "beginner": "مبتدئ",
+  "learner": "متعلم",
+  "scholar": "عالم",
+  "advanced": "متقدم",
+  "expert": "خبير",
+  "master": "أستاذ",
+  "sheikh": "شيخ",
+  
+  "@_AUDIO": {},
+  "playRecitation": "تشغيل التلاوة",
+  "pauseRecitation": "إيقاف التلاوة",
+  "stopRecitation": "إيقاف نهائي",
+  "selectReciter": "اختر القارئ",
+  "reciter": "القارئ",
+  "changeReciter": "تغيير القارئ"
+}
+
