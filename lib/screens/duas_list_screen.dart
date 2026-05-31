@@ -134,7 +134,7 @@ class _DuasListScreenState extends State<DuasListScreen>
       decoration: BoxDecoration(
         color: isDark
             ? Theme.of(context).appBarTheme.backgroundColor
-            : AppColors.primaryGreen,
+            : AppColors.brandPrimary,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -171,7 +171,7 @@ class _DuasListScreenState extends State<DuasListScreen>
       child: TextField(
         decoration: InputDecoration(
           hintText: 'ابحث في الأدعية...',
-          prefixIcon: Icon(Icons.search, color: AppColors.primaryGreen),
+          prefixIcon: Icon(Icons.search, color: AppColors.brandPrimary),
           suffixIcon: _searchQuery.isNotEmpty
               ? IconButton(
                   icon: const Icon(Icons.clear),
@@ -187,16 +187,16 @@ class _DuasListScreenState extends State<DuasListScreen>
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
             borderSide:
-                BorderSide(color: AppColors.primaryGreen.withOpacity(0.3)),
+                BorderSide(color: AppColors.brandPrimary.withOpacity(0.3)),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
             borderSide:
-                BorderSide(color: AppColors.primaryGreen.withOpacity(0.3)),
+                BorderSide(color: AppColors.brandPrimary.withOpacity(0.3)),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: AppColors.primaryGreen, width: 2),
+            borderSide: BorderSide(color: AppColors.brandPrimary, width: 2),
           ),
         ),
         onChanged: (value) {
@@ -213,9 +213,9 @@ class _DuasListScreenState extends State<DuasListScreen>
       color: isDark ? Theme.of(context).cardColor : Colors.white,
       child: TabBar(
         controller: _tabController,
-        labelColor: AppColors.primaryGreen,
+        labelColor: AppColors.brandPrimary,
         unselectedLabelColor: Colors.grey,
-        indicatorColor: AppColors.primaryGreen,
+        indicatorColor: AppColors.brandPrimary,
         tabs: const [
           Tab(text: 'الكل'),
           Tab(text: 'الفئات'),
@@ -294,8 +294,8 @@ class _DuasListScreenState extends State<DuasListScreen>
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                   colors: [
-                    AppColors.primaryGreen.withOpacity(0.1),
-                    AppColors.primaryGold.withOpacity(0.05),
+                    AppColors.brandPrimary.withOpacity(0.1),
+                    AppColors.brandSecondary.withOpacity(0.05),
                   ],
                 ),
               ),
@@ -321,7 +321,7 @@ class _DuasListScreenState extends State<DuasListScreen>
                     '$count ${count == 1 ? "دعاء" : "أدعية"}',
                     style: AppTextStyles.caption(isDark: isDark).copyWith(
                       fontSize: 12,
-                      color: AppColors.primaryGreen,
+                      color: AppColors.brandPrimary,
                     ),
                   ),
                 ],
@@ -342,7 +342,7 @@ class _DuasListScreenState extends State<DuasListScreen>
         // Header للفئة المختارة
         Container(
           padding: const EdgeInsets.all(16),
-          color: AppColors.primaryGreen.withOpacity(0.1),
+          color: AppColors.brandPrimary.withOpacity(0.1),
           child: Row(
             children: [
               IconButton(
@@ -442,8 +442,8 @@ class _DuasListScreenState extends State<DuasListScreen>
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                   colors: [
-                    AppColors.primaryGold.withOpacity(0.2),
-                    AppColors.primaryGreen.withOpacity(0.05),
+                    AppColors.brandSecondary.withOpacity(0.2),
+                    AppColors.brandPrimary.withOpacity(0.05),
                   ],
                 ),
               ),
@@ -469,7 +469,7 @@ class _DuasListScreenState extends State<DuasListScreen>
                     '$count ${count == 1 ? "دعاء" : "أدعية"}',
                     style: AppTextStyles.caption(isDark: isDark).copyWith(
                       fontSize: 12,
-                      color: AppColors.primaryGold,
+                      color: AppColors.brandSecondary,
                     ),
                   ),
                 ],
@@ -490,7 +490,7 @@ class _DuasListScreenState extends State<DuasListScreen>
         // Header للمناسبة المختارة
         Container(
           padding: const EdgeInsets.all(16),
-          color: AppColors.primaryGold.withOpacity(0.1),
+          color: AppColors.brandSecondary.withOpacity(0.1),
           child: Row(
             children: [
               IconButton(

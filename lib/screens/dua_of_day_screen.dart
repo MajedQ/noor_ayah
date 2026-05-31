@@ -59,7 +59,7 @@ class _DuaOfDayScreenState extends State<DuaOfDayScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: const Text('تم نسخ الدعاء'),
-          backgroundColor: AppColors.primaryGreen,
+          backgroundColor: AppColors.brandPrimary,
           behavior: SnackBarBehavior.floating,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
@@ -115,7 +115,7 @@ class _DuaOfDayScreenState extends State<DuaOfDayScreen> {
                     pinned: true,
                     backgroundColor: isDark
                         ? theme.appBarTheme.backgroundColor
-                        : AppColors.primaryGreen,
+                        : AppColors.brandPrimary,
                     flexibleSpace: FlexibleSpaceBar(
                       title: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -207,13 +207,13 @@ class _DuaOfDayScreenState extends State<DuaOfDayScreen> {
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
           colors: [
-            AppColors.primaryGold.withOpacity(0.2),
-            AppColors.primaryGreen.withOpacity(0.1),
+            AppColors.brandSecondary.withOpacity(0.2),
+            AppColors.brandPrimary.withOpacity(0.1),
           ],
         ),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.primaryGold.withOpacity(0.3),
+          color: AppColors.brandSecondary.withOpacity(0.3),
           width: 1,
         ),
       ),
@@ -222,7 +222,7 @@ class _DuaOfDayScreenState extends State<DuaOfDayScreen> {
         children: [
           Icon(
             Icons.calendar_today_rounded,
-            color: AppColors.primaryGold,
+            color: AppColors.brandSecondary,
             size: 20,
           ),
           const SizedBox(width: 12),
@@ -256,7 +256,7 @@ class _DuaOfDayScreenState extends State<DuaOfDayScreen> {
             icon: const Icon(Icons.remove_red_eye_outlined),
             label: const Text('التفاصيل'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primaryGreen,
+              backgroundColor: AppColors.brandPrimary,
               foregroundColor: Colors.white,
               padding: const EdgeInsets.symmetric(vertical: 12),
               shape: RoundedRectangleBorder(
@@ -272,9 +272,9 @@ class _DuaOfDayScreenState extends State<DuaOfDayScreen> {
             icon: const Icon(Icons.share_outlined),
             label: const Text('مشاركة'),
             style: OutlinedButton.styleFrom(
-              foregroundColor: AppColors.primaryGreen,
+              foregroundColor: AppColors.brandPrimary,
               padding: const EdgeInsets.symmetric(vertical: 12),
-              side: BorderSide(color: AppColors.primaryGreen),
+              side: BorderSide(color: AppColors.brandPrimary),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
@@ -286,8 +286,8 @@ class _DuaOfDayScreenState extends State<DuaOfDayScreen> {
           onPressed: () => _copyDua(dua),
           icon: const Icon(Icons.copy_outlined),
           style: IconButton.styleFrom(
-            foregroundColor: AppColors.primaryGreen,
-            backgroundColor: AppColors.primaryGreen.withOpacity(0.1),
+            foregroundColor: AppColors.brandPrimary,
+            backgroundColor: AppColors.brandPrimary.withOpacity(0.1),
           ),
         ),
       ],

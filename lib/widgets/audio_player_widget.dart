@@ -41,7 +41,7 @@ class AudioPlayerWidget extends StatelessWidget {
         isPlaying ? Icons.pause_circle_filled : Icons.play_circle_filled,
         size: 40,
       ),
-      color: AppColors.primaryGreen,
+      color: AppColors.brandPrimary,
       onPressed: () async {
         if (isPlaying) {
           await audioProvider.pause();
@@ -75,10 +75,10 @@ class AudioPlayerWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: isDark
             ? AppColors.cardDark
-            : AppColors.primaryGreen.withOpacity(0.1),
+            : AppColors.brandPrimary.withOpacity(0.1),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.primaryGreen.withOpacity(0.3),
+          color: AppColors.brandPrimary.withOpacity(0.3),
           width: 1,
         ),
       ),
@@ -90,7 +90,7 @@ class AudioPlayerWidget extends StatelessWidget {
             children: [
               Icon(
                 Icons.record_voice_over,
-                color: AppColors.primaryGreen,
+                color: AppColors.brandPrimary,
                 size: 20,
               ),
               const SizedBox(width: 8),
@@ -111,7 +111,7 @@ class AudioPlayerWidget extends StatelessWidget {
                   'تغيير',
                   style: TextStyle(
                     fontSize: 12,
-                    color: AppColors.primaryGreen,
+                    color: AppColors.brandPrimary,
                   ),
                 ),
               ),
@@ -128,10 +128,10 @@ class AudioPlayerWidget extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: AppColors.primaryGreen,
+                  color: AppColors.brandPrimary,
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.primaryGreen.withOpacity(0.3),
+                      color: AppColors.brandPrimary.withOpacity(0.3),
                       blurRadius: 8,
                       spreadRadius: 2,
                     ),
@@ -199,7 +199,7 @@ class AudioPlayerWidget extends StatelessWidget {
                               : 0.0,
                           backgroundColor: Colors.grey[300],
                           valueColor: AlwaysStoppedAnimation<Color>(
-                            AppColors.primaryGreen,
+                            AppColors.brandPrimary,
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -250,17 +250,17 @@ class AudioPlayerWidget extends StatelessWidget {
             return ListTile(
               leading: Icon(
                 Icons.record_voice_over,
-                color: isSelected ? AppColors.primaryGreen : Colors.grey,
+                color: isSelected ? AppColors.brandPrimary : Colors.grey,
               ),
               title: Text(
                 reciter.displayName,
                 style: TextStyle(
                   fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                  color: isSelected ? AppColors.primaryGreen : null,
+                  color: isSelected ? AppColors.brandPrimary : null,
                 ),
               ),
               trailing: isSelected
-                  ? Icon(Icons.check, color: AppColors.primaryGreen)
+                  ? Icon(Icons.check, color: AppColors.brandPrimary)
                   : null,
               onTap: () {
                 audioProvider.setReciter(reciter);

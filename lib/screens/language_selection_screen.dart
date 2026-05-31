@@ -109,10 +109,10 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
                     onPressed: _selectedLocale != null ? _continue : null,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
-                      foregroundColor: AppColors.primaryGreen,
+                      foregroundColor: AppColors.brandPrimary,
                       disabledBackgroundColor: Colors.white.withOpacity(0.5),
                       disabledForegroundColor:
-                          AppColors.primaryGreen.withOpacity(0.5),
+                          AppColors.brandPrimary.withOpacity(0.5),
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -158,12 +158,12 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: isSelected
-                  ? AppColors.primaryGreen.withOpacity(0.1)
+                  ? AppColors.brandPrimary.withOpacity(0.1)
                   : Colors.transparent,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
                 color:
-                    isSelected ? AppColors.primaryGreen : Colors.grey.shade300,
+                    isSelected ? AppColors.brandPrimary : Colors.grey.shade300,
                 width: isSelected ? 2 : 1,
               ),
             ),
@@ -182,14 +182,14 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
                       fontWeight:
                           isSelected ? FontWeight.bold : FontWeight.normal,
                       color:
-                          isSelected ? AppColors.primaryGreen : Colors.black87,
+                          isSelected ? AppColors.brandPrimary : Colors.black87,
                     ),
                   ),
                 ),
                 if (isSelected)
-                  const Icon(
+                  Icon(
                     Icons.check_circle,
-                    color: AppColors.primaryGreen,
+                    color: AppColors.brandPrimary,
                   ),
               ],
             ),

@@ -44,14 +44,14 @@ class LanguageSettingsScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
                     color: isSelected
-                        ? AppColors.primaryGreen.withOpacity(0.1)
+                        ? AppColors.brandPrimary.withOpacity(0.1)
                         : isDark
                             ? AppColors.cardDark
                             : AppColors.cardLight,
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
                       color: isSelected
-                          ? AppColors.primaryGreen
+                          ? AppColors.brandPrimary
                           : isDark
                               ? AppColors.iconDark.withOpacity(0.3)
                               : Colors.grey.shade300,
@@ -73,15 +73,15 @@ class LanguageSettingsScreen extends StatelessWidget {
                             fontWeight: isSelected
                                 ? FontWeight.bold
                                 : FontWeight.normal,
-                            color: isSelected ? AppColors.primaryGreen : null,
+                            color: isSelected ? AppColors.brandPrimary : null,
                             fontSize: 18,
                           ),
                         ),
                       ),
                       if (isSelected)
-                        const Icon(
+                        Icon(
                           Icons.check_circle,
-                          color: AppColors.primaryGreen,
+                          color: AppColors.brandPrimary,
                           size: 28,
                         ),
                     ],

@@ -320,7 +320,7 @@ class _VerseDetailsScreenState extends State<VerseDetailsScreen>
                           icon: '💭',
                           title: 'التدبر',
                           content: currentVerse.reflection,
-                          color: AppColors.primaryGreen,
+                          color: AppColors.brandPrimary,
                           isDark: isDark,
                           sizeMultiplier: sizeMultiplier,
                         ),
@@ -332,7 +332,7 @@ class _VerseDetailsScreenState extends State<VerseDetailsScreen>
                           icon: '🤲',
                           title: 'الدعاء',
                           content: currentVerse.dua,
-                          color: AppColors.primaryGold,
+                          color: AppColors.brandSecondary,
                           isDark: isDark,
                           sizeMultiplier: sizeMultiplier,
                         ),
@@ -461,7 +461,7 @@ class _VerseDetailsScreenState extends State<VerseDetailsScreen>
             icon: const Icon(Icons.image, size: 22),
             label: const Text('مشاركة كصورة مصممة ✨'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primaryGold,
+              backgroundColor: AppColors.brandSecondary,
               foregroundColor: AppColors.textPrimary,
               padding: const EdgeInsets.symmetric(vertical: 14),
             ),
@@ -503,8 +503,8 @@ class _VerseDetailsScreenState extends State<VerseDetailsScreen>
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     backgroundColor: isDark
-                        ? AppColors.primaryGold.withOpacity(0.8)
-                        : AppColors.primaryGreen,
+                        ? AppColors.brandSecondary.withOpacity(0.8)
+                        : AppColors.brandPrimary,
                   ),
                 ),
               )
@@ -523,8 +523,8 @@ class _VerseDetailsScreenState extends State<VerseDetailsScreen>
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     backgroundColor: isDark
-                        ? AppColors.primaryGold.withOpacity(0.8)
-                        : AppColors.primaryGold,
+                        ? AppColors.brandSecondary.withOpacity(0.8)
+                        : AppColors.brandSecondary,
                   ),
                 ),
               )
@@ -731,17 +731,17 @@ class _VerseDetailsScreenState extends State<VerseDetailsScreen>
             return ListTile(
               leading: Icon(
                 Icons.record_voice_over,
-                color: isSelected ? AppColors.primaryGreen : Colors.grey,
+                color: isSelected ? AppColors.brandPrimary : Colors.grey,
               ),
               title: Text(
                 reciter.displayName,
                 style: TextStyle(
                   fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                  color: isSelected ? AppColors.primaryGreen : null,
+                  color: isSelected ? AppColors.brandPrimary : null,
                 ),
               ),
               trailing: isSelected
-                  ? Icon(Icons.check, color: AppColors.primaryGreen)
+                  ? Icon(Icons.check, color: AppColors.brandPrimary)
                   : null,
               onTap: () {
                 audioProvider.setReciter(reciter);

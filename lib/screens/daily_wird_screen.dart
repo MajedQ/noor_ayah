@@ -79,7 +79,7 @@ class _DailyWirdScreenState extends State<DailyWirdScreen> {
                     pinned: true,
                     backgroundColor: isDark
                         ? theme.appBarTheme.backgroundColor
-                        : AppColors.primaryGreen,
+                        : AppColors.brandPrimary,
                     flexibleSpace: FlexibleSpaceBar(
                       title: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -152,7 +152,7 @@ class _DailyWirdScreenState extends State<DailyWirdScreen> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _showCreateWirdDialog,
-        backgroundColor: AppColors.primaryGreen,
+        backgroundColor: AppColors.brandPrimary,
         icon: const Icon(Icons.add),
         label: const Text('ورد جديد'),
       ),
@@ -170,13 +170,13 @@ class _DailyWirdScreenState extends State<DailyWirdScreen> {
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
           colors: [
-            AppColors.primaryGreen.withOpacity(0.15),
-            AppColors.primaryGold.withOpacity(0.1),
+            AppColors.brandPrimary.withOpacity(0.15),
+            AppColors.brandSecondary.withOpacity(0.1),
           ],
         ),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: AppColors.primaryGreen.withOpacity(0.3),
+          color: AppColors.brandPrimary.withOpacity(0.3),
           width: 2,
         ),
       ),
@@ -206,8 +206,8 @@ class _DailyWirdScreenState extends State<DailyWirdScreen> {
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: wird.isCompletedToday
-                      ? AppColors.primaryGold.withOpacity(0.2)
-                      : AppColors.primaryGreen.withOpacity(0.2),
+                      ? AppColors.brandSecondary.withOpacity(0.2)
+                      : AppColors.brandPrimary.withOpacity(0.2),
                   shape: BoxShape.circle,
                 ),
                 child: Text(
@@ -216,8 +216,8 @@ class _DailyWirdScreenState extends State<DailyWirdScreen> {
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: wird.isCompletedToday
-                        ? AppColors.primaryGold
-                        : AppColors.primaryGreen,
+                        ? AppColors.brandSecondary
+                        : AppColors.brandPrimary,
                   ),
                 ),
               ),
@@ -235,8 +235,8 @@ class _DailyWirdScreenState extends State<DailyWirdScreen> {
               backgroundColor: Colors.grey[300],
               valueColor: AlwaysStoppedAnimation<Color>(
                 wird.isCompletedToday
-                    ? AppColors.primaryGold
-                    : AppColors.primaryGreen,
+                    ? AppColors.brandSecondary
+                    : AppColors.brandPrimary,
               ),
             ),
           ),
@@ -318,11 +318,11 @@ class _DailyWirdScreenState extends State<DailyWirdScreen> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               color: item.isCompleted
-                  ? AppColors.primaryGold.withOpacity(0.1)
+                  ? AppColors.brandSecondary.withOpacity(0.1)
                   : (isDark ? theme.colorScheme.surface : Colors.white),
               border: item.isCompleted
                   ? Border.all(
-                      color: AppColors.primaryGold.withOpacity(0.3),
+                      color: AppColors.brandSecondary.withOpacity(0.3),
                       width: 2,
                     )
                   : null,
@@ -335,7 +335,7 @@ class _DailyWirdScreenState extends State<DailyWirdScreen> {
                   onChanged: (value) {
                     wirdProvider.toggleWirdItem(wird.id, item.id);
                   },
-                  activeColor: AppColors.primaryGold,
+                  activeColor: AppColors.brandSecondary,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(6),
                   ),
@@ -349,8 +349,8 @@ class _DailyWirdScreenState extends State<DailyWirdScreen> {
                   height: 36,
                   decoration: BoxDecoration(
                     color: item.isCompleted
-                        ? AppColors.primaryGold.withOpacity(0.2)
-                        : AppColors.primaryGreen.withOpacity(0.1),
+                        ? AppColors.brandSecondary.withOpacity(0.2)
+                        : AppColors.brandPrimary.withOpacity(0.1),
                     shape: BoxShape.circle,
                   ),
                   child: Center(
@@ -360,8 +360,8 @@ class _DailyWirdScreenState extends State<DailyWirdScreen> {
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: item.isCompleted
-                            ? AppColors.primaryGold
-                            : AppColors.primaryGreen,
+                            ? AppColors.brandSecondary
+                            : AppColors.brandPrimary,
                       ),
                     ),
                   ),
@@ -436,13 +436,13 @@ class _DailyWirdScreenState extends State<DailyWirdScreen> {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            AppColors.primaryGold.withOpacity(0.2),
-            AppColors.primaryGold.withOpacity(0.1),
+            AppColors.brandSecondary.withOpacity(0.2),
+            AppColors.brandSecondary.withOpacity(0.1),
           ],
         ),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.primaryGold.withOpacity(0.3),
+          color: AppColors.brandSecondary.withOpacity(0.3),
           width: 2,
         ),
       ),
@@ -457,7 +457,7 @@ class _DailyWirdScreenState extends State<DailyWirdScreen> {
             'بارك الله فيك!',
             style: AppTextStyles.heading2(isDark: false).copyWith(
               fontSize: 24,
-              color: AppColors.primaryGold,
+              color: AppColors.brandSecondary,
             ),
           ),
           const SizedBox(height: 8),
@@ -473,7 +473,7 @@ class _DailyWirdScreenState extends State<DailyWirdScreen> {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: const Text('تم إعادة تعيين الورد لبداية جديدة'),
-                    backgroundColor: AppColors.primaryGreen,
+                    backgroundColor: AppColors.brandPrimary,
                   ),
                 );
               }
@@ -481,7 +481,7 @@ class _DailyWirdScreenState extends State<DailyWirdScreen> {
             icon: const Icon(Icons.refresh),
             label: const Text('إعادة التعيين'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primaryGold,
+              backgroundColor: AppColors.brandSecondary,
               foregroundColor: Colors.white,
               padding: const EdgeInsets.symmetric(
                 horizontal: 24,
@@ -523,7 +523,7 @@ class _DailyWirdScreenState extends State<DailyWirdScreen> {
               icon: const Icon(Icons.add),
               label: const Text('إنشاء ورد يومي'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primaryGreen,
+                backgroundColor: AppColors.brandPrimary,
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 32,
@@ -613,7 +613,7 @@ class _CreateWirdDialogState extends State<CreateWirdDialog> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: const Text('تم إنشاء الورد بنجاح'),
-        backgroundColor: AppColors.primaryGreen,
+        backgroundColor: AppColors.brandPrimary,
       ),
     );
   }
@@ -766,7 +766,7 @@ class _CreateWirdDialogState extends State<CreateWirdDialog> {
                       icon: const Icon(Icons.book_outlined),
                       label: const Text('إضافة آيات'),
                       style: OutlinedButton.styleFrom(
-                        foregroundColor: AppColors.primaryGreen,
+                        foregroundColor: AppColors.brandPrimary,
                       ),
                     ),
                   ),
@@ -777,7 +777,7 @@ class _CreateWirdDialogState extends State<CreateWirdDialog> {
                       icon: const Icon(Icons.mode_comment_outlined),
                       label: const Text('إضافة أدعية'),
                       style: OutlinedButton.styleFrom(
-                        foregroundColor: AppColors.primaryGold,
+                        foregroundColor: AppColors.brandSecondary,
                       ),
                     ),
                   ),
@@ -795,7 +795,7 @@ class _CreateWirdDialogState extends State<CreateWirdDialog> {
         ElevatedButton(
           onPressed: _createWird,
           style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.primaryGreen,
+            backgroundColor: AppColors.brandPrimary,
           ),
           child: const Text('إنشاء'),
         ),

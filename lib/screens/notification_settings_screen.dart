@@ -197,7 +197,7 @@ class _NotificationSettingsScreenState
                     ? Icons.notifications_active
                     : Icons.notifications_off,
                 color: _notificationsEnabled
-                    ? AppColors.primaryGreen
+                    ? AppColors.brandPrimary
                     : Colors.grey,
                 size: 32,
               ),
@@ -224,9 +224,9 @@ class _NotificationSettingsScreenState
           if (_notificationsEnabled) ...[
             Card(
               child: ListTile(
-                leading: const Icon(
+                leading: Icon(
                   Icons.access_time,
-                  color: AppColors.primaryGreen,
+                  color: AppColors.brandPrimary,
                   size: 32,
                 ),
                 title: Text(
@@ -238,7 +238,7 @@ class _NotificationSettingsScreenState
                 subtitle: Text(
                   _formatTime(_selectedTime),
                   style: AppTextStyles.caption(isDark: isDark).copyWith(
-                    color: AppColors.primaryGreen,
+                    color: AppColors.brandPrimary,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

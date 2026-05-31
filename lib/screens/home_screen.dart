@@ -144,7 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    AppColors.primaryGreen.withOpacity(0.1),
+                    AppColors.brandPrimary.withOpacity(0.1),
                     AppColors.backgroundLight,
                   ],
                 ),
@@ -362,7 +362,7 @@ class _HomeScreenState extends State<HomeScreen> {
     bool isRamadan,
   ) {
     final dateColor =
-        isRamadan ? AppColors.primaryGold : AppColors.primaryGreen;
+        isRamadan ? AppColors.brandSecondary : AppColors.brandPrimary;
 
     return GestureDetector(
       onTap: () => calendarProvider.toggleCalendar(),
@@ -419,7 +419,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icons.book,
             label: 'إجمالي الآيات',
             value: '${verseProvider.totalVersesCount}',
-            color: AppColors.primaryGreen,
+            color: AppColors.brandPrimary,
             isDark: isDark,
           ),
         ),
@@ -429,7 +429,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icons.category,
             label: 'الفئات',
             value: '${verseProvider.categoriesCount}',
-            color: AppColors.primaryGold,
+            color: AppColors.brandSecondary,
             isDark: isDark,
           ),
         ),
@@ -485,7 +485,7 @@ class _HomeScreenState extends State<HomeScreen> {
             end: Alignment.bottomRight,
             colors: [
               AppColors.info.withOpacity(0.1),
-              AppColors.primaryGreen.withOpacity(0.05),
+              AppColors.brandPrimary.withOpacity(0.05),
             ],
           ),
           borderRadius: BorderRadius.circular(16),
@@ -501,11 +501,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: _notificationsEnabled
-                        ? AppColors.primaryGreen.withOpacity(0.2)
+                        ? AppColors.brandPrimary.withOpacity(0.2)
                         : Colors.grey.withOpacity(0.2),
                     border: Border.all(
                       color: _notificationsEnabled
-                          ? AppColors.primaryGreen
+                          ? AppColors.brandPrimary
                           : Colors.grey,
                       width: 2,
                     ),
@@ -515,7 +515,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ? Icons.notifications_active
                         : Icons.notifications_off,
                     color: _notificationsEnabled
-                        ? AppColors.primaryGreen
+                        ? AppColors.brandPrimary
                         : Colors.grey,
                     size: 24,
                   ),
@@ -544,7 +544,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Switch(
                   value: _notificationsEnabled,
                   onChanged: _toggleNotifications,
-                  activeColor: AppColors.primaryGreen,
+                  activeColor: AppColors.brandPrimary,
                 ),
               ],
             ),
@@ -563,25 +563,25 @@ class _HomeScreenState extends State<HomeScreen> {
                     vertical: 12,
                   ),
                   decoration: BoxDecoration(
-                    color: AppColors.primaryGreen.withOpacity(0.1),
+                    color: AppColors.brandPrimary.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: AppColors.primaryGreen.withOpacity(0.3),
+                      color: AppColors.brandPrimary.withOpacity(0.3),
                     ),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.access_time,
-                        color: AppColors.primaryGreen,
+                        color: AppColors.brandPrimary,
                         size: 20,
                       ),
                       const SizedBox(width: 8),
                       Text(
                         'تغيير الوقت: ${_formatTime(_selectedTime)}',
                         style: AppTextStyles.bodyText(isDark: isDark).copyWith(
-                          color: AppColors.primaryGreen,
+                          color: AppColors.brandPrimary,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -621,8 +621,8 @@ class _HomeScreenState extends State<HomeScreen> {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                AppColors.primaryGold.withOpacity(0.1),
-                AppColors.primaryGreen.withOpacity(0.05),
+                AppColors.brandSecondary.withOpacity(0.1),
+                AppColors.brandPrimary.withOpacity(0.05),
               ],
             ),
             borderRadius: BorderRadius.circular(16),
@@ -635,16 +635,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 60,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: AppColors.primaryGold.withOpacity(0.2),
+                  color: AppColors.brandSecondary.withOpacity(0.2),
                   border: Border.all(
-                    color: AppColors.primaryGold,
+                    color: AppColors.brandSecondary,
                     width: 2,
                   ),
                 ),
-                child: const Center(
+                child: Center(
                   child: Icon(
                     Icons.emoji_events,
-                    color: AppColors.primaryGold,
+                    color: AppColors.brandSecondary,
                     size: 30,
                   ),
                 ),
@@ -678,7 +678,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             '$streak يوم متتالي',
                             style:
                                 AppTextStyles.caption(isDark: isDark).copyWith(
-                              color: AppColors.primaryGold,
+                              color: AppColors.brandSecondary,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -690,9 +690,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
 
               // سهم
-              const Icon(
+              Icon(
                 Icons.chevron_right,
-                color: AppColors.primaryGold,
+                color: AppColors.brandSecondary,
               ),
             ],
           ),
@@ -714,8 +714,8 @@ class _HomeScreenState extends State<HomeScreen> {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              AppColors.primaryGold.withOpacity(0.1),
-              AppColors.primaryGreen.withOpacity(0.1),
+              AppColors.brandSecondary.withOpacity(0.1),
+              AppColors.brandPrimary.withOpacity(0.1),
             ],
           ),
           borderRadius: BorderRadius.circular(16),
@@ -808,7 +808,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text(
                     'المزيد',
                     style: TextStyle(
-                      color: AppColors.primaryGreen,
+                      color: AppColors.brandPrimary,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -816,7 +816,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Icon(
                     Icons.arrow_forward,
                     size: 16,
-                    color: AppColors.primaryGreen,
+                    color: AppColors.brandPrimary,
                   ),
                 ],
               ),
@@ -854,13 +854,13 @@ class _HomeScreenState extends State<HomeScreen> {
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
           colors: [
-            AppColors.primaryGold.withOpacity(0.15),
-            AppColors.primaryGreen.withOpacity(0.1),
+            AppColors.brandSecondary.withOpacity(0.15),
+            AppColors.brandPrimary.withOpacity(0.1),
           ],
         ),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.primaryGold.withOpacity(0.3),
+          color: AppColors.brandSecondary.withOpacity(0.3),
           width: 2,
         ),
       ),
@@ -902,7 +902,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       activeWird == null ? 'إنشاء' : 'عرض',
                       style: TextStyle(
-                        color: AppColors.primaryGold,
+                        color: AppColors.brandSecondary,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -910,7 +910,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Icon(
                       Icons.arrow_forward,
                       size: 16,
-                      color: AppColors.primaryGold,
+                      color: AppColors.brandSecondary,
                     ),
                   ],
                 ),
@@ -931,8 +931,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 backgroundColor: Colors.grey[300],
                 valueColor: AlwaysStoppedAnimation<Color>(
                   activeWird.isCompletedToday
-                      ? AppColors.primaryGold
-                      : AppColors.primaryGreen,
+                      ? AppColors.brandSecondary
+                      : AppColors.brandPrimary,
                 ),
               ),
             ),
@@ -965,7 +965,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: AppColors.primaryGold.withOpacity(0.2),
+                  color: AppColors.brandSecondary.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
@@ -973,7 +973,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Icon(
                       Icons.check_circle,
-                      color: AppColors.primaryGold,
+                      color: AppColors.brandSecondary,
                       size: 20,
                     ),
                     const SizedBox(width: 8),
@@ -982,7 +982,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.primaryGold,
+                        color: AppColors.brandSecondary,
                       ),
                     ),
                   ],

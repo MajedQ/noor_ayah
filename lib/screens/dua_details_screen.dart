@@ -67,7 +67,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: const Text('تم نسخ الدعاء'),
-          backgroundColor: AppColors.primaryGreen,
+          backgroundColor: AppColors.brandPrimary,
           behavior: SnackBarBehavior.floating,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
@@ -169,7 +169,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
       decoration: BoxDecoration(
         color: isDark
             ? Theme.of(context).appBarTheme.backgroundColor
-            : AppColors.primaryGreen,
+            : AppColors.brandPrimary,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -201,7 +201,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
               return IconButton(
                 icon: Icon(
                   isFavorite ? Icons.favorite : Icons.favorite_border,
-                  color: isFavorite ? AppColors.primaryGold : Colors.white,
+                  color: isFavorite ? AppColors.brandSecondary : Colors.white,
                 ),
                 onPressed: () async {
                   await favoritesProvider.toggleDuaFavorite(currentDua);
@@ -216,7 +216,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
                         duration: const Duration(seconds: 1),
                         backgroundColor: isFavorite
                             ? Colors.grey[700]
-                            : AppColors.primaryGold,
+                            : AppColors.brandSecondary,
                       ),
                     );
                   }
@@ -242,13 +242,13 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
           colors: [
-            AppColors.primaryGold.withOpacity(0.2),
-            AppColors.primaryGreen.withOpacity(0.1),
+            AppColors.brandSecondary.withOpacity(0.2),
+            AppColors.brandPrimary.withOpacity(0.1),
           ],
         ),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.primaryGold.withOpacity(0.3),
+          color: AppColors.brandSecondary.withOpacity(0.3),
           width: 1,
         ),
       ),
@@ -262,7 +262,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.primaryGreen.withOpacity(0.3),
+                  color: AppColors.brandPrimary.withOpacity(0.3),
                   blurRadius: 8,
                   spreadRadius: 2,
                 ),
@@ -295,9 +295,9 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
             children: [
               Chip(
                 label: Text(currentDua.category.displayName),
-                backgroundColor: AppColors.primaryGreen.withOpacity(0.2),
+                backgroundColor: AppColors.brandPrimary.withOpacity(0.2),
                 labelStyle: TextStyle(
-                  color: AppColors.primaryGreen,
+                  color: AppColors.brandPrimary,
                   fontSize: 13,
                   fontWeight: FontWeight.bold,
                 ),
@@ -312,9 +312,9 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
                       Text(currentDua.occasion.displayName),
                     ],
                   ),
-                  backgroundColor: AppColors.primaryGold.withOpacity(0.2),
+                  backgroundColor: AppColors.brandSecondary.withOpacity(0.2),
                   labelStyle: TextStyle(
-                    color: AppColors.primaryGold,
+                    color: AppColors.brandSecondary,
                     fontSize: 13,
                     fontWeight: FontWeight.bold,
                   ),
@@ -336,12 +336,12 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
         color: isDark ? Colors.black.withOpacity(0.2) : Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.primaryGreen.withOpacity(0.2),
+          color: AppColors.brandPrimary.withOpacity(0.2),
           width: 2,
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primaryGreen.withOpacity(0.1),
+            color: AppColors.brandPrimary.withOpacity(0.1),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),
@@ -351,7 +351,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
         children: [
           Icon(
             Icons.format_quote,
-            color: AppColors.primaryGold.withOpacity(0.3),
+            color: AppColors.brandSecondary.withOpacity(0.3),
             size: 32,
           ),
           const SizedBox(height: 16),
@@ -370,7 +370,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
             angle: 3.14159, // 180 degrees
             child: Icon(
               Icons.format_quote,
-              color: AppColors.primaryGold.withOpacity(0.3),
+              color: AppColors.brandSecondary.withOpacity(0.3),
               size: 32,
             ),
           ),
@@ -386,7 +386,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
         color: AppColors.lightBeige.withOpacity(0.5),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppColors.primaryGreen.withOpacity(0.2),
+          color: AppColors.brandPrimary.withOpacity(0.2),
           width: 1,
         ),
       ),
@@ -397,7 +397,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
             children: [
               Icon(
                 Icons.record_voice_over_outlined,
-                color: AppColors.primaryGreen,
+                color: AppColors.brandPrimary,
                 size: 20,
               ),
               const SizedBox(width: 8),
@@ -432,13 +432,13 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            AppColors.primaryGold.withOpacity(0.1),
-            AppColors.primaryGold.withOpacity(0.05),
+            AppColors.brandSecondary.withOpacity(0.1),
+            AppColors.brandSecondary.withOpacity(0.05),
           ],
         ),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppColors.primaryGold.withOpacity(0.3),
+          color: AppColors.brandSecondary.withOpacity(0.3),
           width: 1,
         ),
       ),
@@ -459,7 +459,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
                   style: AppTextStyles.heading3(isDark: isDark).copyWith(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.primaryGold,
+                    color: AppColors.brandSecondary,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -482,10 +482,10 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.primaryGreen.withOpacity(0.1),
+        color: AppColors.brandPrimary.withOpacity(0.1),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppColors.primaryGreen.withOpacity(0.2),
+          color: AppColors.brandPrimary.withOpacity(0.2),
           width: 1,
         ),
       ),
@@ -493,7 +493,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
         children: [
           Icon(
             Icons.menu_book_rounded,
-            color: AppColors.primaryGreen,
+            color: AppColors.brandPrimary,
             size: 24,
           ),
           const SizedBox(width: 12),
@@ -533,7 +533,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
                 icon: const Icon(Icons.share_outlined),
                 label: const Text('مشاركة نص'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primaryGreen,
+                  backgroundColor: AppColors.brandPrimary,
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 14),
                   shape: RoundedRectangleBorder(
@@ -549,9 +549,9 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
                 icon: const Icon(Icons.copy_outlined),
                 label: const Text('نسخ'),
                 style: OutlinedButton.styleFrom(
-                  foregroundColor: AppColors.primaryGreen,
+                  foregroundColor: AppColors.brandPrimary,
                   padding: const EdgeInsets.symmetric(vertical: 14),
-                  side: BorderSide(color: AppColors.primaryGreen),
+                  side: BorderSide(color: AppColors.brandPrimary),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -575,7 +575,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
             icon: const Icon(Icons.image_outlined),
             label: const Text('مشاركة كصورة'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primaryGold,
+              backgroundColor: AppColors.brandSecondary,
               foregroundColor: Colors.white,
               padding: const EdgeInsets.symmetric(vertical: 14),
               shape: RoundedRectangleBorder(
@@ -615,7 +615,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
             icon: const Icon(Icons.arrow_back_ios_rounded),
             label: const Text('السابق'),
             style: TextButton.styleFrom(
-              foregroundColor: hasPrev ? AppColors.primaryGreen : Colors.grey,
+              foregroundColor: hasPrev ? AppColors.brandPrimary : Colors.grey,
             ),
           ),
 
@@ -625,7 +625,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
             icon: const Icon(Icons.arrow_forward_ios_rounded),
             label: const Text('التالي'),
             style: TextButton.styleFrom(
-              foregroundColor: hasNext ? AppColors.primaryGreen : Colors.grey,
+              foregroundColor: hasNext ? AppColors.brandPrimary : Colors.grey,
             ),
           ),
         ],

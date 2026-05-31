@@ -191,26 +191,26 @@ class _DuasTab extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: isDark
                       ? AppColors.cardDark
-                      : AppColors.primaryGold.withOpacity(0.1),
+                      : AppColors.brandSecondary.withOpacity(0.1),
                   border: Border(
                     bottom: BorderSide(
-                      color: AppColors.primaryGold.withOpacity(0.3),
+                      color: AppColors.brandSecondary.withOpacity(0.3),
                     ),
                   ),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.favorite,
-                      color: AppColors.primaryGold,
+                      color: AppColors.brandSecondary,
                       size: 20,
                     ),
                     const SizedBox(width: 8),
                     Text(
                       'لديك ${favoriteDuas.length} دعاء مفضل',
                       style: AppTextStyles.bodyText(isDark: isDark).copyWith(
-                        color: AppColors.primaryGold,
+                        color: AppColors.brandSecondary,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

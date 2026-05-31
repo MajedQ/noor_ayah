@@ -64,8 +64,8 @@ class DuaCard extends StatelessWidget {
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       color: isDark
-                          ? AppColors.primaryGreen.withOpacity(0.2)
-                          : AppColors.primaryGreen.withOpacity(0.1),
+                          ? AppColors.brandPrimary.withOpacity(0.2)
+                          : AppColors.brandPrimary.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(
@@ -91,7 +91,7 @@ class DuaCard extends StatelessWidget {
                         Text(
                           dua.category.displayName,
                           style: AppTextStyles.caption(isDark: isDark).copyWith(
-                            color: AppColors.primaryGreen,
+                            color: AppColors.brandPrimary,
                             fontSize: isCompact ? 12 : 13,
                           ),
                         ),
@@ -106,7 +106,7 @@ class DuaCard extends StatelessWidget {
                         vertical: 4,
                       ),
                       decoration: BoxDecoration(
-                        color: AppColors.primaryGold.withOpacity(0.2),
+                        color: AppColors.brandSecondary.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
@@ -122,7 +122,7 @@ class DuaCard extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 11,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.primaryGold,
+                              color: AppColors.brandSecondary,
                             ),
                           ),
                         ],
@@ -138,7 +138,7 @@ class DuaCard extends StatelessWidget {
                           isFavorite ? Icons.favorite : Icons.favorite_border,
                           size: 20,
                         ),
-                        color: isFavorite ? AppColors.primaryGold : Colors.grey,
+                        color: isFavorite ? AppColors.brandSecondary : Colors.grey,
                         padding: EdgeInsets.zero,
                         constraints: const BoxConstraints(),
                         onPressed: () async {
@@ -163,7 +163,7 @@ class DuaCard extends StatelessWidget {
                       : Colors.white.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                    color: AppColors.primaryGreen.withOpacity(0.2),
+                    color: AppColors.brandPrimary.withOpacity(0.2),
                     width: 1,
                   ),
                 ),
@@ -190,10 +190,10 @@ class DuaCard extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: AppColors.primaryGold.withOpacity(0.1),
+                      color: AppColors.brandSecondary.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
-                        color: AppColors.primaryGold.withOpacity(0.3),
+                        color: AppColors.brandSecondary.withOpacity(0.3),
                         width: 1,
                       ),
                     ),
@@ -280,7 +280,7 @@ class DuaCard extends StatelessWidget {
                         icon: const Icon(Icons.arrow_forward, size: 16),
                         label: const Text('التفاصيل'),
                         style: TextButton.styleFrom(
-                          foregroundColor: AppColors.primaryGreen,
+                          foregroundColor: AppColors.brandPrimary,
                           padding: const EdgeInsets.symmetric(
                             horizontal: 12,
                             vertical: 6,

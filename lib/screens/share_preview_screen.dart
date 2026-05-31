@@ -197,7 +197,7 @@ class _SharePreviewScreenState extends State<SharePreviewScreen> {
                             _isSharing ? 'جاري المشاركة...' : 'مشاركة الآن'),
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 18),
-                          backgroundColor: AppColors.primaryGreen,
+                          backgroundColor: AppColors.brandPrimary,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
@@ -258,13 +258,13 @@ class _SharePreviewScreenState extends State<SharePreviewScreen> {
       child: Container(
         decoration: BoxDecoration(
           color: isSelected
-              ? AppColors.primaryGreen.withOpacity(0.1)
+              ? AppColors.brandPrimary.withOpacity(0.1)
               : isDark
                   ? AppColors.cardDark
                   : Colors.grey[100],
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isSelected ? AppColors.primaryGreen : Colors.grey.shade300,
+            color: isSelected ? AppColors.brandPrimary : Colors.grey.shade300,
             width: isSelected ? 3 : 1,
           ),
         ),
@@ -281,16 +281,16 @@ class _SharePreviewScreenState extends State<SharePreviewScreen> {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                color: isSelected ? AppColors.primaryGreen : null,
+                color: isSelected ? AppColors.brandPrimary : null,
               ),
               textAlign: TextAlign.center,
             ),
             if (isSelected)
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(top: 4),
                 child: Icon(
                   Icons.check_circle,
-                  color: AppColors.primaryGreen,
+                  color: AppColors.brandPrimary,
                   size: 20,
                 ),
               ),

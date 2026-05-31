@@ -134,7 +134,7 @@ class _DuaSharePreviewScreenState extends State<DuaSharePreviewScreen> {
       appBar: AppBar(
         title: const Text('مشاركة كصورة'),
         backgroundColor:
-            isDark ? theme.appBarTheme.backgroundColor : AppColors.primaryGreen,
+            isDark ? theme.appBarTheme.backgroundColor : AppColors.brandPrimary,
         foregroundColor: Colors.white,
         actions: [
           if (_isSharing)
@@ -250,14 +250,14 @@ class _DuaSharePreviewScreenState extends State<DuaSharePreviewScreen> {
                             ),
                             decoration: BoxDecoration(
                               color: isSelected
-                                  ? AppColors.primaryGreen
+                                  ? AppColors.brandPrimary
                                   : (isDark
                                       ? AppColors.cardDark
                                       : Colors.grey[200]),
                               borderRadius: BorderRadius.circular(15),
                               border: Border.all(
                                 color: isSelected
-                                    ? AppColors.primaryGreen
+                                    ? AppColors.brandPrimary
                                     : Colors.grey[300]!,
                                 width: 2,
                               ),
@@ -307,7 +307,7 @@ class _DuaSharePreviewScreenState extends State<DuaSharePreviewScreen> {
                   label:
                       Text(_isSharing ? 'جاري المشاركة...' : 'مشاركة الصورة'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primaryGreen,
+                    backgroundColor: AppColors.brandPrimary,
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     textStyle: const TextStyle(

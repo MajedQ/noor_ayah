@@ -29,9 +29,9 @@ class FontSelectionScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.info_outline,
-                        color: AppColors.primaryGold,
+                        color: AppColors.brandSecondary,
                       ),
                       const SizedBox(width: 8),
                       Text(
@@ -127,12 +127,12 @@ class FontSelectionScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               border: isSelected
                   ? Border.all(
-                      color: AppColors.primaryGreen,
+                      color: AppColors.brandPrimary,
                       width: 2,
                     )
                   : null,
               color:
-                  isSelected ? AppColors.primaryGreen.withOpacity(0.05) : null,
+                  isSelected ? AppColors.brandPrimary.withOpacity(0.05) : null,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -148,7 +148,7 @@ class FontSelectionScreen extends StatelessWidget {
                           font.displayName,
                           style:
                               AppTextStyles.heading3(isDark: isDark).copyWith(
-                            color: isSelected ? AppColors.primaryGreen : null,
+                            color: isSelected ? AppColors.brandPrimary : null,
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -159,9 +159,9 @@ class FontSelectionScreen extends StatelessWidget {
                       ],
                     ),
                     if (isSelected)
-                      const Icon(
+                      Icon(
                         Icons.check_circle,
-                        color: AppColors.primaryGreen,
+                        color: AppColors.brandPrimary,
                         size: 28,
                       ),
                   ],
@@ -187,7 +187,7 @@ class FontSelectionScreen extends StatelessWidget {
                         : AppColors.veryLightGreen,
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: AppColors.primaryGreen.withOpacity(0.2),
+                      color: AppColors.brandPrimary.withOpacity(0.2),
                     ),
                   ),
                   child: Column(

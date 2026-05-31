@@ -9,6 +9,7 @@ import '../providers/theme_provider.dart';
 class AppTheme {
   /// السمة الفاتحة مع ثيم ألوان مخصص
   static ThemeData getLightTheme(AppThemeColor colorTheme) {
+    AppColors.activeTheme = colorTheme;
     final themeColors = ThemeColors(colorTheme);
 
     return ThemeData(
@@ -154,6 +155,7 @@ class AppTheme {
 
   /// السمة الداكنة مع ثيم ألوان مخصص
   static ThemeData getDarkTheme(AppThemeColor colorTheme) {
+    AppColors.activeTheme = colorTheme;
     final themeColors = ThemeColors(colorTheme);
 
     return ThemeData(

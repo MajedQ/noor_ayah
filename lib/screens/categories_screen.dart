@@ -35,7 +35,7 @@ class CategoriesScreen extends StatelessWidget {
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          AppColors.primaryGreen.withOpacity(0.05),
+                          AppColors.brandPrimary.withOpacity(0.05),
                           AppColors.backgroundLight,
                         ],
                       ),

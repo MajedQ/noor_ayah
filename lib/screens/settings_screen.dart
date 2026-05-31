@@ -104,14 +104,14 @@ class SettingsScreen extends StatelessWidget {
                 icon: Icons.book,
                 label: 'إجمالي الآيات',
                 value: '${verseProvider.totalVersesCount}',
-                color: AppColors.primaryGreen,
+                color: AppColors.brandPrimary,
                 isDark: isDark,
               ),
               _buildStatTile(
                 icon: Icons.category,
                 label: 'عدد الفئات',
                 value: '${verseProvider.categoriesCount}',
-                color: AppColors.primaryGold,
+                color: AppColors.brandSecondary,
                 isDark: isDark,
               ),
               _buildStatTile(
@@ -179,9 +179,9 @@ class SettingsScreen extends StatelessWidget {
             height: 100,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: AppColors.primaryGreen.withOpacity(0.1),
+              color: AppColors.brandPrimary.withOpacity(0.1),
               border: Border.all(
-                color: AppColors.primaryGreen,
+                color: AppColors.brandPrimary,
                 width: 3,
               ),
               boxShadow: [
@@ -205,14 +205,14 @@ class SettingsScreen extends StatelessWidget {
           Text(
             AppConstants.appName,
             style: AppTextStyles.heading1(isDark: isDark).copyWith(
-              color: AppColors.primaryGreen,
+              color: AppColors.brandPrimary,
             ),
           ),
           const SizedBox(height: 8),
           Text(
             AppConstants.appSlogan,
             style: AppTextStyles.bodyText(isDark: isDark).copyWith(
-              color: AppColors.primaryGold,
+              color: AppColors.brandSecondary,
             ),
             textAlign: TextAlign.center,
           ),
@@ -240,7 +240,7 @@ class SettingsScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Row(
             children: [
-              Icon(icon, size: 20, color: AppColors.primaryGreen),
+              Icon(icon, size: 20, color: AppColors.brandPrimary),
               const SizedBox(width: 8),
               Text(
                 title,
@@ -264,7 +264,7 @@ class SettingsScreen extends StatelessWidget {
     return SwitchListTile(
       secondary: Icon(
         isDark ? Icons.dark_mode : Icons.light_mode,
-        color: AppColors.primaryGreen,
+        color: AppColors.brandPrimary,
       ),
       title: const Text('الوضع الليلي'),
       subtitle: Text(
@@ -335,9 +335,9 @@ class SettingsScreen extends StatelessWidget {
     bool isDark,
   ) {
     return ListTile(
-      leading: const Icon(
+      leading: Icon(
         Icons.format_size,
-        color: AppColors.primaryGreen,
+        color: AppColors.brandPrimary,
       ),
       title: const Text('حجم الخط'),
       subtitle: Text(
@@ -352,9 +352,9 @@ class SettingsScreen extends StatelessWidget {
     final fontProvider = context.watch<FontProvider>();
 
     return ListTile(
-      leading: const Icon(
+      leading: Icon(
         Icons.font_download,
-        color: AppColors.primaryGreen,
+        color: AppColors.brandPrimary,
       ),
       title: const Text('خط الآيات'),
       subtitle: Text(
@@ -383,9 +383,9 @@ class SettingsScreen extends StatelessWidget {
     );
 
     return ListTile(
-      leading: const Icon(
+      leading: Icon(
         Icons.language,
-        color: AppColors.primaryGreen,
+        color: AppColors.brandPrimary,
       ),
       title: const Text('اللغة • Language'),
       subtitle: Text(
@@ -406,9 +406,9 @@ class SettingsScreen extends StatelessWidget {
 
   Widget _buildNotificationsSetting(BuildContext context, bool isDark) {
     return ListTile(
-      leading: const Icon(
+      leading: Icon(
         Icons.notifications,
-        color: AppColors.primaryGreen,
+        color: AppColors.brandPrimary,
       ),
       title: const Text('الإشعارات اليومية'),
       subtitle: Text(
@@ -429,9 +429,9 @@ class SettingsScreen extends StatelessWidget {
 
   Widget _buildAchievementsSetting(BuildContext context, bool isDark) {
     return ListTile(
-      leading: const Icon(
+      leading: Icon(
         Icons.emoji_events,
-        color: AppColors.primaryGold,
+        color: AppColors.brandSecondary,
       ),
       title: const Text('الإنجازات'),
       subtitle: Text(
@@ -485,7 +485,7 @@ class SettingsScreen extends StatelessWidget {
     required bool isDark,
   }) {
     return ListTile(
-      leading: Icon(icon, color: AppColors.primaryGreen),
+      leading: Icon(icon, color: AppColors.brandPrimary),
       title: Text(title),
       subtitle: subtitle != null ? Text(subtitle) : null,
       trailing: const Icon(Icons.chevron_right),

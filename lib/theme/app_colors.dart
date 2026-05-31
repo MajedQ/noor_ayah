@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../providers/theme_provider.dart';
 
 /// تعريف جميع الألوان المستخدمة في التطبيق
 class AppColors {
@@ -139,6 +140,19 @@ class AppColors {
   /// ثيم البيج - Beige Theme
   static const Color beigePrimary = Color(0xFF8C7B5B);
   static const Color beigeSecondary = Color(0xFFB89B72);
+
+  // =============== الثيم النشط (مصدر موحّد) ===============
+
+  /// الثيم اللوني النشط حاليًا.
+  /// يُحدَّث تلقائيًا في AppTheme.getLightTheme/getDarkTheme عند كل إعادة بناء،
+  /// ما يجعل brandPrimary/brandSecondary يتبعان الثيم المختار في كامل الواجهة.
+  static AppThemeColor activeTheme = AppThemeColor.classic;
+
+  /// اللون الأساسي للثيم النشط (بديل ديناميكي عن primaryGreen)
+  static Color get brandPrimary => getPrimaryColor(activeTheme.name);
+
+  /// اللون الثانوي للثيم النشط (بديل ديناميكي عن primaryGold)
+  static Color get brandSecondary => getSecondaryColor(activeTheme.name);
 
   /// الحصول على اللون الأساسي حسب الثيم (مفتاح نصي)
   static Color getPrimaryColor(String theme) {

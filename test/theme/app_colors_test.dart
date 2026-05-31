@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:noor_ayah/theme/app_colors.dart';
+import 'package:noor_ayah/providers/theme_provider.dart';
 
 void main() {
   group('AppColors.getPrimaryColor', () {
@@ -41,6 +42,24 @@ void main() {
     test('يعيد لون "عام" للفئة غير المعروفة', () {
       expect(AppColors.getCategoryColor('فئة-غير-موجودة'),
           AppColors.categoryColors['عام']);
+    });
+  });
+
+  group('AppColors brand (الثيم النشط)', () {
+    tearDown(() => AppColors.activeTheme = AppThemeColor.classic);
+
+    test('brandPrimary/brandSecondary يتبعان الثيم النشط', () {
+      AppColors.activeTheme = AppThemeColor.golden;
+      expect(AppColors.brandPrimary, AppColors.goldenPrimary);
+      expect(AppColors.brandSecondary, AppColors.goldenSecondary);
+
+      AppColors.activeTheme = AppThemeColor.beige;
+      expect(AppColors.brandPrimary, AppColors.beigePrimary);
+      expect(AppColors.brandSecondary, AppColors.beigeSecondary);
+
+      AppColors.activeTheme = AppThemeColor.classic;
+      expect(AppColors.brandPrimary, AppColors.primaryGreen);
+      expect(AppColors.brandSecondary, AppColors.primaryGold);
     });
   });
 }

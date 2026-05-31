@@ -76,13 +76,13 @@ class AchievementsScreen extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            AppColors.primaryGold.withOpacity(0.2),
-            AppColors.primaryGreen.withOpacity(0.2),
+            AppColors.brandSecondary.withOpacity(0.2),
+            AppColors.brandPrimary.withOpacity(0.2),
           ],
         ),
         border: Border(
           bottom: BorderSide(
-            color: AppColors.primaryGreen.withOpacity(0.3),
+            color: AppColors.brandPrimary.withOpacity(0.3),
           ),
         ),
       ),
@@ -94,13 +94,13 @@ class AchievementsScreen extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  AppColors.primaryGold.withOpacity(0.3),
-                  AppColors.primaryGreen.withOpacity(0.2),
+                  AppColors.brandSecondary.withOpacity(0.3),
+                  AppColors.brandPrimary.withOpacity(0.2),
                 ],
               ),
               borderRadius: BorderRadius.circular(30),
               border: Border.all(
-                color: AppColors.primaryGold,
+                color: AppColors.brandSecondary,
                 width: 2,
               ),
             ),
@@ -121,7 +121,7 @@ class AchievementsScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.primaryGold,
+                        color: AppColors.brandSecondary,
                       ),
                     ),
                     Text(
@@ -154,7 +154,7 @@ class AchievementsScreen extends StatelessWidget {
                 minHeight: 10,
                 backgroundColor: Colors.grey[300],
                 valueColor:
-                    AlwaysStoppedAnimation<Color>(AppColors.primaryGold),
+                    AlwaysStoppedAnimation<Color>(AppColors.brandSecondary),
               ),
             ),
             const SizedBox(height: 4),
@@ -212,7 +212,7 @@ class AchievementsScreen extends StatelessWidget {
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: AppColors.primaryGreen,
+            color: AppColors.brandPrimary,
           ),
         ),
         const SizedBox(height: 2),
@@ -310,7 +310,7 @@ class AchievementsScreen extends StatelessWidget {
                                     style: TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,
-                                      color: AppColors.primaryGold,
+                                      color: AppColors.brandSecondary,
                                     ),
                                   ),
                                 ],
@@ -391,7 +391,7 @@ class AchievementsScreen extends StatelessWidget {
       case 2:
         return const Color(0xFFC0C0C0); // فضي
       case 3:
-        return AppColors.primaryGold; // ذهبي
+        return AppColors.brandSecondary; // ذهبي
       case 4:
         return const Color(0xFFE5E4E2); // بلاتيني
       case 5:

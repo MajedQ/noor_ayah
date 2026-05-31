@@ -58,7 +58,7 @@ class _SyncScreenState extends State<SyncScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: const Text('أنت تستخدم أحدث نسخة من المحتوى'),
-            backgroundColor: AppColors.primaryGreen,
+            backgroundColor: AppColors.brandPrimary,
           ),
         );
       }
@@ -107,7 +107,7 @@ class _SyncScreenState extends State<SyncScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: const Text('تم تحديث المحتوى بنجاح'),
-            backgroundColor: AppColors.primaryGreen,
+            backgroundColor: AppColors.brandPrimary,
           ),
         );
       }
@@ -151,7 +151,7 @@ class _SyncScreenState extends State<SyncScreen> {
       appBar: AppBar(
         title: const Text('مزامنة المحتوى'),
         backgroundColor:
-            isDark ? theme.appBarTheme.backgroundColor : AppColors.primaryGreen,
+            isDark ? theme.appBarTheme.backgroundColor : AppColors.brandPrimary,
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -217,7 +217,7 @@ class _SyncScreenState extends State<SyncScreen> {
             Icon(
               Icons.info_outline,
               size: 50,
-              color: AppColors.primaryGreen,
+              color: AppColors.brandPrimary,
             ),
             const SizedBox(height: 16),
             Text(
@@ -230,7 +230,7 @@ class _SyncScreenState extends State<SyncScreen> {
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
-                color: AppColors.primaryGold,
+                color: AppColors.brandSecondary,
               ),
             ),
             if (_lastSyncDate != null) ...[
@@ -307,7 +307,7 @@ class _SyncScreenState extends State<SyncScreen> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
-      color: AppColors.primaryGold.withOpacity(0.1),
+      color: AppColors.brandSecondary.withOpacity(0.1),
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -318,7 +318,7 @@ class _SyncScreenState extends State<SyncScreen> {
                 Icon(
                   Icons.system_update,
                   size: 40,
-                  color: AppColors.primaryGold,
+                  color: AppColors.brandSecondary,
                 ),
                 const SizedBox(width: 16),
                 Expanded(
@@ -329,7 +329,7 @@ class _SyncScreenState extends State<SyncScreen> {
                         'تحديث جديد متاح!',
                         style: AppTextStyles.heading3(isDark: isDark).copyWith(
                           fontSize: 18,
-                          color: AppColors.primaryGold,
+                          color: AppColors.brandSecondary,
                         ),
                       ),
                       const SizedBox(height: 4),
@@ -378,7 +378,7 @@ class _SyncScreenState extends State<SyncScreen> {
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.primaryGreen,
+                        color: AppColors.brandPrimary,
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -391,7 +391,7 @@ class _SyncScreenState extends State<SyncScreen> {
                                 '• ',
                                 style: TextStyle(
                                   fontSize: 14,
-                                  color: AppColors.primaryGold,
+                                  color: AppColors.brandSecondary,
                                 ),
                               ),
                               Expanded(
@@ -416,7 +416,7 @@ class _SyncScreenState extends State<SyncScreen> {
               icon: const Icon(Icons.download),
               label: const Text('تحميل وتثبيت التحديث'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primaryGold,
+                backgroundColor: AppColors.brandSecondary,
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 shape: RoundedRectangleBorder(
@@ -445,7 +445,7 @@ class _SyncScreenState extends State<SyncScreen> {
               children: [
                 Icon(
                   Icons.sync,
-                  color: AppColors.primaryGreen,
+                  color: AppColors.brandPrimary,
                   size: 24,
                 ),
                 const SizedBox(width: 12),
@@ -466,7 +466,7 @@ class _SyncScreenState extends State<SyncScreen> {
               onChanged: _toggleAutoSync,
               title: const Text('مزامنة تلقائية'),
               subtitle: const Text('تحديث المحتوى بشكل تلقائي'),
-              activeColor: AppColors.primaryGreen,
+              activeColor: AppColors.brandPrimary,
             ),
 
             if (_autoSync) ...[
@@ -482,7 +482,7 @@ class _SyncScreenState extends State<SyncScreen> {
                   ),
                   prefixIcon: Icon(
                     Icons.schedule,
-                    color: AppColors.primaryGreen,
+                    color: AppColors.brandPrimary,
                   ),
                 ),
                 items: SyncFrequency.values
@@ -515,7 +515,7 @@ class _SyncScreenState extends State<SyncScreen> {
           icon: const Icon(Icons.refresh),
           label: const Text('التحقق من التحديثات'),
           style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.primaryGreen,
+            backgroundColor: AppColors.brandPrimary,
             foregroundColor: Colors.white,
             padding: const EdgeInsets.symmetric(vertical: 14),
             shape: RoundedRectangleBorder(
@@ -530,10 +530,10 @@ class _SyncScreenState extends State<SyncScreen> {
         Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: AppColors.primaryGreen.withOpacity(0.1),
+            color: AppColors.brandPrimary.withOpacity(0.1),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: AppColors.primaryGreen.withOpacity(0.2),
+              color: AppColors.brandPrimary.withOpacity(0.2),
             ),
           ),
           child: Column(
@@ -544,7 +544,7 @@ class _SyncScreenState extends State<SyncScreen> {
                   Icon(
                     Icons.info_outline,
                     size: 20,
-                    color: AppColors.primaryGreen,
+                    color: AppColors.brandPrimary,
                   ),
                   const SizedBox(width: 8),
                   Text(
@@ -552,7 +552,7 @@ class _SyncScreenState extends State<SyncScreen> {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.primaryGreen,
+                      color: AppColors.brandPrimary,
                     ),
                   ),
                 ],
@@ -583,7 +583,7 @@ class _SyncScreenState extends State<SyncScreen> {
       case SyncStatus.installing:
         return Colors.blue;
       case SyncStatus.completed:
-        return AppColors.primaryGreen;
+        return AppColors.brandPrimary;
       case SyncStatus.error:
         return Colors.red;
     }
