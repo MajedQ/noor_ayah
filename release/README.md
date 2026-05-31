@@ -1,10 +1,25 @@
 # إصدارات نور آية (APK)
 
-| الملف | المعمارية | الإصدار | الحجم |
-|---|---|---|---|
-| `noor-ayah-1.0.0-arm64-v8a.apk` | arm64-v8a (معالجات ARMv8 / 64-bit) | 1.0.0 | ~16 MB |
+## التحميل من GitHub Releases
 
-## كيفية البناء
+يتم بناء ونشر ملف **arm64-v8a** (معالجات ARMv8 / 64-bit) تلقائيًا عبر GitHub Actions عند إنشاء وسم إصدار:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+أو من واجهة GitHub: **Actions → Release APK (arm64-v8a) → Run workflow**.
+
+| الحقل | القيمة |
+|---|---|
+| اسم الملف | `noor-ayah-<version>-arm64-v8a.apk` |
+| المعمارية | arm64-v8a (ARMv8 / 64-bit) |
+| الإصدار الحالي | 1.0.0 |
+
+رابط الإصدارات: [GitHub Releases](https://github.com/MajedQ/noor_ayah/releases)
+
+## البناء المحلي
 
 ```bash
 flutter pub get
@@ -17,13 +32,11 @@ flutter build apk --release --target-platform android-arm64
 
 - **المعمارية:** هذا الـ APK مخصص لمعالجات **arm64-v8a** فقط (أغلب أجهزة أندرويد الحديثة).
   للأجهزة القديمة (armeabi-v7a) ابنِ بـ `--target-platform android-arm`.
-- **التوقيع:** هذا الإصدار موقّع بمفتاح **التصحيح (debug)** الافتراضي من قالب Flutter
+- **التوقيع:** الإصدار موقّع بمفتاح **التصحيح (debug)** الافتراضي من قالب Flutter
   (كما هو معرّف في `android/app/build.gradle.kts`). وهو مناسب للتجربة والتثبيت المباشر،
   لكنه **غير صالح للنشر على Google Play**؛ للنشر يجب إنشاء keystore خاص وإعداد
   `signingConfig` للإصدار.
-- للتحقق من سلامة الملف: قارن قيمة SHA-256.
-  - `noor-ayah-1.0.0-arm64-v8a.apk`: `17b003acb938c178541dc05b928e59fa40d1d590c3cdd390e026c648b67af763`
+- للتحقق من سلامة الملف: قارن قيمة SHA-256 المذكورة في وصف الإصدار على GitHub.
 - لتثبيت الملف على الجهاز فعّل «تثبيت من مصادر غير معروفة» ثم افتح الـ APK.
 
-> بديل موصى به مستقبلًا: رفع الـ APK كـ **GitHub Release asset** بدلًا من الالتزام به داخل المستودع،
-> لتفادي تضخّم تاريخ Git بالملفات الثنائية.
+> الـ APK **لا يُخزَّن داخل المستودع**؛ يُرفع فقط كملف مرفق في GitHub Release لتجنب تضخّم تاريخ Git.

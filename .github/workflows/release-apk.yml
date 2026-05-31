@@ -1,0 +1,87 @@
+name: Release APK (arm64-v8a)
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Build arm64-v8a APK and publish release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.5'
+          channel: stable
+          cache: true
+
+      - name: Accept Android licenses
+        run: yes | flutter doctor --android-licenses || true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Generate localizations
+        run: flutter gen-l10n
+
+      - name: Build release APK (arm64-v8a)
+        run: flutter build apk --release --target-platform android-arm64
+
+      - name: Prepare release asset
+        id: asset
+        run: |
+          VERSION=$(grep '^version:' pubspec.yaml | sed 's/version:[[:space:]]*//' | cut -d'+' -f1)
+          ASSET_NAME="noor-ayah-${VERSION}-arm64-v8a.apk"
+          cp build/app/outputs/flutter-apk/app-release.apk "${ASSET_NAME}"
+          SHA256=$(sha256sum "${ASSET_NAME}" | awk '{print $1}')
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "asset_name=${ASSET_NAME}" >> "$GITHUB_OUTPUT"
+          echo "sha256=${SHA256}" >> "$GITHUB_OUTPUT"
+          echo "### APK (${ASSET_NAME})" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Architecture: **arm64-v8a** (ARMv8 / 64-bit)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- SHA-256: \`${SHA256}\`" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event_name == 'push' && github.ref_name || format('v{0}', steps.asset.outputs.version) }}
+          name: Noor Ayah ${{ steps.asset.outputs.version }} (arm64-v8a)
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          files: ${{ steps.asset.outputs.asset_name }}
+          body: |
+            ## Android APK (arm64-v8a)
+
+            | Field | Value |
+            |---|---|
+            | File | `${{ steps.asset.outputs.asset_name }}` |
+            | Architecture | arm64-v8a (ARMv8 / 64-bit) |
+            | Version | ${{ steps.asset.outputs.version }} |
+            | SHA-256 | `${{ steps.asset.outputs.sha256 }}` |
+
+            ### Install
+
+            1. Download the APK from **Assets** below.
+            2. On your device, enable installation from unknown sources.
+            3. Open the APK to install.
+
+            > Signed with the default debug keystore (suitable for direct install / testing, not Google Play).
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
