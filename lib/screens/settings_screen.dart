@@ -566,37 +566,117 @@ class SettingsScreen extends StatelessWidget {
       context: context,
       builder: (dialogContext) {
         final isDark = Theme.of(dialogContext).brightness == Brightness.dark;
-        return AlertDialog(
-          title: Text(l10n?.selectColorTheme ?? 'اختر ثيم الألوان'),
-          contentPadding: const EdgeInsets.symmetric(vertical: 12),
-          content: SizedBox(
-            width: double.maxFinite,
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: AppThemeColor.values.map((theme) {
-                  return _buildThemeOption(
-                    context: dialogContext,
-                    theme: theme,
-                    isSelected: themeProvider.colorTheme == theme,
-                    isDark: isDark,
-                    onTap: () {
-                      themeProvider.setColorTheme(theme);
-                      Navigator.pop(dialogContext);
-                    },
-                  );
-                }).toList(),
+        AppThemeColor previewTheme = themeProvider.colorTheme;
+        return StatefulBuilder(
+          builder: (context, setLocal) {
+            return AlertDialog(
+              title: Text(l10n?.selectColorTheme ?? 'اختر ثيم الألوان'),
+              contentPadding: const EdgeInsets.symmetric(vertical: 12),
+              content: SizedBox(
+                width: double.maxFinite,
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // معاينة حية تتلوّن فورًا مع الاختيار
+                      _buildThemePreviewCard(dialogContext, previewTheme, isDark),
+                      const SizedBox(height: 12),
+                      ...AppThemeColor.values.map((theme) {
+                        return _buildThemeOption(
+                          context: dialogContext,
+                          theme: theme,
+                          isSelected: previewTheme == theme,
+                          isDark: isDark,
+                          onTap: () {
+                            setLocal(() => previewTheme = theme);
+                            themeProvider.setColorTheme(theme);
+                          },
+                        );
+                      }),
+                    ],
+                  ),
+                ),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(dialogContext),
+                  child: const Text('تم'),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
+
+  /// بطاقة معاينة حية لثيم الألوان المختار
+  Widget _buildThemePreviewCard(
+      BuildContext context, AppThemeColor theme, bool isDark) {
+    final colors = ThemeColors(theme);
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 12),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        gradient: colors.primaryGradient,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.15),
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Text('🌟', style: TextStyle(fontSize: 18)),
+              const SizedBox(width: 6),
+              Text(
+                AppConstants.appName,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  fontFamily: AppTextStyles.cairoFont,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          const Text(
+            'مِن كُلِّ آيةٍ.. نورٌ وهداية',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+              fontFamily: AppTextStyles.amiriFont,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Align(
+            alignment: AlignmentDirectional.centerEnd,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              decoration: BoxDecoration(
+                color: colors.secondary,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text(
+                _getThemeDisplayName(context, theme),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                  fontFamily: AppTextStyles.cairoFont,
+                ),
               ),
             ),
           ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(dialogContext),
-              child: const Text('إغلاق'),
-            ),
-          ],
-        );
-      },
+        ],
+      ),
     );
   }
 
