@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:noor_ayah/providers/theme_provider.dart';
@@ -63,6 +64,28 @@ void main() {
       provider.addListener(() => notified = true);
       await provider.setColorTheme(AppThemeColor.beige);
       expect(notified, true);
+    });
+
+    test('setThemeMode يدعم تلقائي/فاتح/داكن ويحفظه', () async {
+      final provider = ThemeProvider();
+      await provider.setThemeMode(ThemeMode.system);
+      expect(provider.themeMode, ThemeMode.system);
+      expect(provider.isDarkMode, false);
+
+      final prefs = await SharedPreferences.getInstance();
+      expect(prefs.getInt('themeMode'), ThemeMode.system.index);
+
+      await provider.setThemeMode(ThemeMode.dark);
+      expect(provider.isDarkMode, true);
+    });
+
+    test('toggleTheme يتنقل بين الفاتح والداكن', () async {
+      final provider = ThemeProvider();
+      await provider.setThemeMode(ThemeMode.light);
+      await provider.toggleTheme();
+      expect(provider.themeMode, ThemeMode.dark);
+      await provider.toggleTheme();
+      expect(provider.themeMode, ThemeMode.light);
     });
   });
 }

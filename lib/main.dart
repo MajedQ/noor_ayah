@@ -77,7 +77,7 @@ class MyApp extends StatelessWidget {
             builder: (context, child) {
               return MediaQuery(
                 data: MediaQuery.of(context).copyWith(
-                  textScaleFactor: themeProvider.fontSizeMultiplier,
+                  textScaler: TextScaler.linear(themeProvider.fontSizeMultiplier),
                 ),
                 child: child!,
               );
@@ -86,8 +86,7 @@ class MyApp extends StatelessWidget {
             // السمات - ديناميكية حسب الثيم المختار
             theme: AppTheme.getLightTheme(themeProvider.colorTheme),
             darkTheme: AppTheme.getDarkTheme(themeProvider.colorTheme),
-            themeMode:
-                themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+            themeMode: themeProvider.themeMode,
 
             // دعم اللغات المتعددة
             localizationsDelegates: const [

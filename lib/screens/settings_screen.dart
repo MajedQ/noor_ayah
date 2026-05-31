@@ -261,20 +261,47 @@ class SettingsScreen extends StatelessWidget {
     ThemeProvider themeProvider,
     bool isDark,
   ) {
-    return SwitchListTile(
-      secondary: Icon(
-        isDark ? Icons.dark_mode : Icons.light_mode,
+    return ListTile(
+      leading: Icon(
+        themeProvider.themeMode.icon,
         color: AppColors.brandPrimary,
       ),
-      title: const Text('الوضع الليلي'),
+      title: const Text('وضع السمة'),
       subtitle: Text(
-        isDark ? 'مُفعّل' : 'غير مُفعّل',
+        themeProvider.themeMode.arabicName,
         style: AppTextStyles.caption(isDark: isDark),
       ),
-      value: isDark,
-      onChanged: (value) {
-        themeProvider.toggleTheme();
-      },
+      trailing: const Icon(Icons.chevron_right),
+      onTap: () => _showThemeModeDialog(context, themeProvider),
+    );
+  }
+
+  void _showThemeModeDialog(
+    BuildContext context,
+    ThemeProvider themeProvider,
+  ) {
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('وضع السمة'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: ThemeMode.values.map((mode) {
+            return RadioListTile<ThemeMode>(
+              secondary: Icon(mode.icon, color: AppColors.brandPrimary),
+              title: Text(mode.arabicName),
+              value: mode,
+              groupValue: themeProvider.themeMode,
+              onChanged: (value) {
+                if (value != null) {
+                  themeProvider.setThemeMode(value);
+                  Navigator.pop(dialogContext);
+                }
+              },
+            );
+          }).toList(),
+        ),
+      ),
     );
   }
 

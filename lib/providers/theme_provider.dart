@@ -4,14 +4,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// Provider لإدارة السمة (الوضع الفاتح/الليلي) وحجم الخط
 class ThemeProvider extends ChangeNotifier {
   static const String _themeKey = 'isDarkMode';
+  static const String _themeModeKey = 'themeMode';
   static const String _fontSizeKey = 'fontSize';
   static const String _colorThemeKey = 'colorTheme';
 
-  bool _isDarkMode = false;
+  ThemeMode _themeMode = ThemeMode.light;
   FontSize _fontSize = FontSize.medium;
   AppThemeColor _colorTheme = AppThemeColor.classic;
 
-  bool get isDarkMode => _isDarkMode;
+  ThemeMode get themeMode => _themeMode;
+
+  /// متوافق مع الكود القديم: داكن فقط عند اختيار الوضع الليلي صراحةً
+  bool get isDarkMode => _themeMode == ThemeMode.dark;
   FontSize get fontSize => _fontSize;
   AppThemeColor get colorTheme => _colorTheme;
 
@@ -22,7 +26,14 @@ class ThemeProvider extends ChangeNotifier {
   /// تحميل التفضيلات المحفوظة
   Future<void> _loadPreferences() async {
     final prefs = await SharedPreferences.getInstance();
-    _isDarkMode = prefs.getBool(_themeKey) ?? false;
+    // وضع السمة: تفضيل المفتاح الجديد، مع توافق رجعي مع isDarkMode
+    final modeIndex = prefs.getInt(_themeModeKey);
+    if (modeIndex != null && modeIndex >= 0 && modeIndex < ThemeMode.values.length) {
+      _themeMode = ThemeMode.values[modeIndex];
+    } else {
+      _themeMode =
+          (prefs.getBool(_themeKey) ?? false) ? ThemeMode.dark : ThemeMode.light;
+    }
     final fontSizeIndex = prefs.getInt(_fontSizeKey) ?? 1;
     final colorThemeIndex = prefs.getInt(_colorThemeKey) ?? 0;
     _fontSize = FontSize.values[fontSizeIndex];
@@ -30,11 +41,18 @@ class ThemeProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// التبديل بين الوضع الفاتح والليلي
+  /// التبديل بين الوضع الفاتح والليلي (يتجاهل وضع النظام)
   Future<void> toggleTheme() async {
-    _isDarkMode = !_isDarkMode;
+    await setThemeMode(
+        _themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark);
+  }
+
+  /// تعيين وضع السمة (فاتح/داكن/تلقائي حسب النظام)
+  Future<void> setThemeMode(ThemeMode mode) async {
+    _themeMode = mode;
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_themeKey, _isDarkMode);
+    await prefs.setInt(_themeModeKey, mode.index);
+    await prefs.setBool(_themeKey, mode == ThemeMode.dark); // توافق رجعي
     notifyListeners();
   }
 
@@ -132,6 +150,32 @@ extension AppThemeColorExtension on AppThemeColor {
         return 'ذهبي دافئ';
       case AppThemeColor.beige:
         return 'رملي مريح للعين';
+    }
+  }
+}
+
+
+/// امتداد لعرض أوضاع السمة بالعربية مع أيقوناتها
+extension ThemeModeArabicX on ThemeMode {
+  String get arabicName {
+    switch (this) {
+      case ThemeMode.light:
+        return 'نهاري';
+      case ThemeMode.dark:
+        return 'ليلي';
+      case ThemeMode.system:
+        return 'تلقائي (حسب النظام)';
+    }
+  }
+
+  IconData get icon {
+    switch (this) {
+      case ThemeMode.light:
+        return Icons.light_mode;
+      case ThemeMode.dark:
+        return Icons.dark_mode;
+      case ThemeMode.system:
+        return Icons.brightness_auto;
     }
   }
 }
