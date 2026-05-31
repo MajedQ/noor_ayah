@@ -9,6 +9,7 @@ import '../providers/locale_provider.dart';
 import '../providers/font_provider.dart';
 import '../theme/app_text_styles.dart';
 import '../theme/app_colors.dart';
+import '../theme/theme_colors.dart';
 import '../utils/constants.dart';
 import 'language_settings_screen.dart';
 import 'font_selection_screen.dart';
@@ -283,18 +284,48 @@ class SettingsScreen extends StatelessWidget {
     bool isDark,
   ) {
     final l10n = AppLocalizations.of(context);
+    final colors = ThemeColors(themeProvider.colorTheme);
 
     return ListTile(
-      leading: const Icon(
+      leading: Icon(
         Icons.color_lens,
-        color: AppColors.primaryGreen,
+        color: colors.primary,
       ),
       title: Text(l10n?.colorTheme ?? 'ثيم الألوان'),
       subtitle: Text(
         _getThemeDisplayName(context, themeProvider.colorTheme),
         style: AppTextStyles.caption(isDark: isDark),
       ),
+      // معاينة لونية مصغّرة للثيم النشط
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _miniSwatch(colors.primary),
+          const SizedBox(width: 4),
+          _miniSwatch(colors.secondary),
+          const SizedBox(width: 8),
+          const Icon(Icons.chevron_right),
+        ],
+      ),
       onTap: () => _showColorThemeDialog(context, themeProvider),
+    );
+  }
+
+  Widget _miniSwatch(Color color) {
+    return Container(
+      width: 18,
+      height: 18,
+      decoration: BoxDecoration(
+        color: color,
+        shape: BoxShape.circle,
+        border: Border.all(color: Colors.white, width: 1.5),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.15),
+            blurRadius: 2,
+          ),
+        ],
+      ),
     );
   }
 
@@ -466,11 +497,17 @@ class SettingsScreen extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     switch (theme) {
       case AppThemeColor.classic:
-        return l10n?.classicTheme ?? 'الكلاسيكي';
+        return l10n?.classicTheme ?? theme.displayName;
       case AppThemeColor.night:
-        return l10n?.nightTheme ?? 'الليلي';
+        return l10n?.nightTheme ?? theme.displayName;
       case AppThemeColor.rose:
-        return l10n?.roseTheme ?? 'الوردي';
+        return l10n?.roseTheme ?? theme.displayName;
+      case AppThemeColor.sage:
+        return l10n?.sageTheme ?? theme.displayName;
+      case AppThemeColor.golden:
+        return l10n?.goldenTheme ?? theme.displayName;
+      case AppThemeColor.beige:
+        return l10n?.beigeTheme ?? theme.displayName;
     }
   }
 
@@ -478,11 +515,17 @@ class SettingsScreen extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     switch (theme) {
       case AppThemeColor.classic:
-        return l10n?.classicThemeDesc ?? 'أخضر وذهبي';
+        return l10n?.classicThemeDesc ?? theme.description;
       case AppThemeColor.night:
-        return l10n?.nightThemeDesc ?? 'أزرق وفضي';
+        return l10n?.nightThemeDesc ?? theme.description;
       case AppThemeColor.rose:
-        return l10n?.roseThemeDesc ?? 'وردي وبنفسجي';
+        return l10n?.roseThemeDesc ?? theme.description;
+      case AppThemeColor.sage:
+        return l10n?.sageThemeDesc ?? theme.description;
+      case AppThemeColor.golden:
+        return l10n?.goldenThemeDesc ?? theme.description;
+      case AppThemeColor.beige:
+        return l10n?.beigeThemeDesc ?? theme.description;
     }
   }
 
@@ -494,27 +537,130 @@ class SettingsScreen extends StatelessWidget {
 
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text(l10n?.selectColorTheme ?? 'اختر ثيم الألوان'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: AppThemeColor.values.map((theme) {
-            return RadioListTile<AppThemeColor>(
-              title: Text(_getThemeDisplayName(context, theme)),
-              subtitle: Text(
-                _getThemeDescription(context, theme),
-                style: const TextStyle(fontSize: 12),
+      builder: (dialogContext) {
+        final isDark = Theme.of(dialogContext).brightness == Brightness.dark;
+        return AlertDialog(
+          title: Text(l10n?.selectColorTheme ?? 'اختر ثيم الألوان'),
+          contentPadding: const EdgeInsets.symmetric(vertical: 12),
+          content: SizedBox(
+            width: double.maxFinite,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: AppThemeColor.values.map((theme) {
+                  return _buildThemeOption(
+                    context: dialogContext,
+                    theme: theme,
+                    isSelected: themeProvider.colorTheme == theme,
+                    isDark: isDark,
+                    onTap: () {
+                      themeProvider.setColorTheme(theme);
+                      Navigator.pop(dialogContext);
+                    },
+                  );
+                }).toList(),
               ),
-              value: theme,
-              groupValue: themeProvider.colorTheme,
-              onChanged: (value) {
-                if (value != null) {
-                  themeProvider.setColorTheme(value);
-                  Navigator.pop(context);
-                }
-              },
-            );
-          }).toList(),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(dialogContext),
+              child: const Text('إغلاق'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  /// عنصر اختيار ثيم مع معاينة لونية مرئية
+  Widget _buildThemeOption({
+    required BuildContext context,
+    required AppThemeColor theme,
+    required bool isSelected,
+    required bool isDark,
+    required VoidCallback onTap,
+  }) {
+    final colors = ThemeColors(theme);
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        decoration: BoxDecoration(
+          color: isSelected
+              ? colors.primary.withOpacity(0.10)
+              : Colors.transparent,
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(
+            color: isSelected
+                ? colors.primary
+                : (isDark ? Colors.white24 : Colors.black12),
+            width: isSelected ? 2 : 1,
+          ),
+        ),
+        child: Row(
+          children: [
+            // معاينة لونية (دائرتان متداخلتان)
+            SizedBox(
+              width: 52,
+              height: 36,
+              child: Stack(
+                children: [
+                  Container(
+                    width: 36,
+                    height: 36,
+                    decoration: BoxDecoration(
+                      color: colors.primary,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.white, width: 2),
+                    ),
+                  ),
+                  Positioned(
+                    left: 18,
+                    child: Container(
+                      width: 36,
+                      height: 36,
+                      decoration: BoxDecoration(
+                        color: colors.secondary,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 2),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    _getThemeDisplayName(context, theme),
+                    style: AppTextStyles.labelText(isDark: isDark).copyWith(
+                      fontWeight:
+                          isSelected ? FontWeight.bold : FontWeight.w500,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    _getThemeDescription(context, theme),
+                    style: AppTextStyles.caption(isDark: isDark)
+                        .copyWith(fontSize: 12),
+                  ),
+                ],
+              ),
+            ),
+            if (isSelected)
+              Icon(Icons.check_circle, color: colors.primary, size: 22)
+            else
+              Icon(
+                Icons.radio_button_unchecked,
+                color: isDark ? Colors.white30 : Colors.black26,
+                size: 22,
+              ),
+          ],
         ),
       ),
     );

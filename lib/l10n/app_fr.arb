@@ -84,6 +84,12 @@
   "roseTheme": "Rose",
   "classicThemeDesc": "Vert et Or",
   "nightThemeDesc": "Bleu et Argent",
-  "roseThemeDesc": "Rose et Violet"
+  "roseThemeDesc": "Rose et Violet",
+  "sageTheme": "Vert Apaisant",
+  "goldenTheme": "Doré",
+  "beigeTheme": "Beige",
+  "sageThemeDesc": "Vert doux et reposant",
+  "goldenThemeDesc": "Or chaleureux",
+  "beigeThemeDesc": "Sable reposant"
 }
 

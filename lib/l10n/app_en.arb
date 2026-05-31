@@ -85,6 +85,12 @@
   "classicThemeDesc": "Green and Gold",
   "nightThemeDesc": "Blue and Silver",
   "roseThemeDesc": "Pink and Purple",
+  "sageTheme": "Calm Green",
+  "goldenTheme": "Golden",
+  "beigeTheme": "Beige",
+  "sageThemeDesc": "Soft, eye-friendly green",
+  "goldenThemeDesc": "Warm gold",
+  "beigeThemeDesc": "Eye-friendly sand",
   
   "@_DUA_OF_DAY": {},
   "duaOfTheDay": "Dua of the Day",

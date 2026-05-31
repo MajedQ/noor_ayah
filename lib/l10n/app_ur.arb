@@ -84,6 +84,12 @@
   "roseTheme": "گلابی",
   "classicThemeDesc": "سبز اور سنہری",
   "nightThemeDesc": "نیلا اور چاندی",
-  "roseThemeDesc": "گلابی اور جامنی"
+  "roseThemeDesc": "گلابی اور جامنی",
+  "sageTheme": "نرم سبز",
+  "goldenTheme": "سنہری",
+  "beigeTheme": "بیج",
+  "sageThemeDesc": "آنکھوں کے لیے آرام دہ نرم سبز",
+  "goldenThemeDesc": "گرم سنہری",
+  "beigeThemeDesc": "آنکھوں کے لیے آرام دہ ریتلا"
 }
 

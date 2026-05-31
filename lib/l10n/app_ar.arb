@@ -123,6 +123,12 @@
   "classicThemeDesc": "أخضر وذهبي",
   "nightThemeDesc": "أزرق وفضي",
   "roseThemeDesc": "وردي وبنفسجي",
+  "sageTheme": "الأخضر المريح",
+  "goldenTheme": "الذهبي",
+  "beigeTheme": "البيج",
+  "sageThemeDesc": "أخضر هادئ مريح للعين",
+  "goldenThemeDesc": "ذهبي دافئ",
+  "beigeThemeDesc": "رملي مريح للعين",
   
   "@_DUA_OF_DAY": {},
   "duaOfTheDay": "دعاء اليوم",

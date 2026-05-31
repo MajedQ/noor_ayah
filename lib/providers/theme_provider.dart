@@ -88,10 +88,16 @@ extension FontSizeExtension on FontSize {
 }
 
 /// تعداد لثيمات الألوان
+///
+/// ملاحظة: ترتيب القيم مهم لأنه يُحفظ كـ index في SharedPreferences،
+/// لذا تُضاف الثيمات الجديدة في النهاية للحفاظ على توافق التفضيلات المحفوظة.
 enum AppThemeColor {
   classic, // الكلاسيكي - أخضر وذهبي
   night, // ليلي - أزرق داكن وفضي
   rose, // وردي - وردي وبنفسجي
+  sage, // أخضر مريح - أخضر هادئ للعين
+  golden, // ذهبي - ذهبي دافئ مع بني
+  beige, // بيج - رملي/سيبيا مريح للعين
 }
 
 extension AppThemeColorExtension on AppThemeColor {
@@ -103,6 +109,12 @@ extension AppThemeColorExtension on AppThemeColor {
         return 'الليلي';
       case AppThemeColor.rose:
         return 'الوردي';
+      case AppThemeColor.sage:
+        return 'الأخضر المريح';
+      case AppThemeColor.golden:
+        return 'الذهبي';
+      case AppThemeColor.beige:
+        return 'البيج';
     }
   }
 
@@ -114,6 +126,12 @@ extension AppThemeColorExtension on AppThemeColor {
         return 'أزرق وفضي';
       case AppThemeColor.rose:
         return 'وردي وبنفسجي';
+      case AppThemeColor.sage:
+        return 'أخضر هادئ مريح للعين';
+      case AppThemeColor.golden:
+        return 'ذهبي دافئ';
+      case AppThemeColor.beige:
+        return 'رملي مريح للعين';
     }
   }
 }

@@ -128,7 +128,19 @@ class AppColors {
   static const Color roseAccent = Color(0xFFF8BBD0); // وردي فاتح
   static const Color roseLight = Color(0xFFFCE4EC);
 
-  /// الحصول على اللون الأساسي حسب الثيم
+  /// ثيم الأخضر المريح - Sage Theme
+  static const Color sagePrimary = Color(0xFF4A7C59);
+  static const Color sageSecondary = Color(0xFFC2A878);
+
+  /// ثيم الذهبي - Golden Theme
+  static const Color goldenPrimary = Color(0xFFB8860B);
+  static const Color goldenSecondary = Color(0xFF6D4C1E);
+
+  /// ثيم البيج - Beige Theme
+  static const Color beigePrimary = Color(0xFF8C7B5B);
+  static const Color beigeSecondary = Color(0xFFB89B72);
+
+  /// الحصول على اللون الأساسي حسب الثيم (مفتاح نصي)
   static Color getPrimaryColor(String theme) {
     switch (theme) {
       case 'classic':
@@ -137,12 +149,18 @@ class AppColors {
         return nightPrimary;
       case 'rose':
         return rosePrimary;
+      case 'sage':
+        return sagePrimary;
+      case 'golden':
+        return goldenPrimary;
+      case 'beige':
+        return beigePrimary;
       default:
         return primaryGreen;
     }
   }
 
-  /// الحصول على اللون الثانوي حسب الثيم
+  /// الحصول على اللون الثانوي حسب الثيم (مفتاح نصي)
   static Color getSecondaryColor(String theme) {
     switch (theme) {
       case 'classic':
@@ -151,6 +169,12 @@ class AppColors {
         return nightSecondary;
       case 'rose':
         return roseSecondary;
+      case 'sage':
+        return sageSecondary;
+      case 'golden':
+        return goldenSecondary;
+      case 'beige':
+        return beigeSecondary;
       default:
         return primaryGold;
     }

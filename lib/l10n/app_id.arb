@@ -84,6 +84,12 @@
   "roseTheme": "Mawar",
   "classicThemeDesc": "Hijau dan Emas",
   "nightThemeDesc": "Biru dan Perak",
-  "roseThemeDesc": "Merah Muda dan Ungu"
+  "roseThemeDesc": "Merah Muda dan Ungu",
+  "sageTheme": "Hijau Lembut",
+  "goldenTheme": "Emas",
+  "beigeTheme": "Krem",
+  "sageThemeDesc": "Hijau lembut nyaman di mata",
+  "goldenThemeDesc": "Emas hangat",
+  "beigeThemeDesc": "Pasir nyaman di mata"
 }
 
