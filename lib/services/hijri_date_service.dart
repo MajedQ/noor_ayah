@@ -63,7 +63,7 @@ class HijriDateService {
     final day = toArabicNumbers(hijri.hDay.toString());
     final year = toArabicNumbers(hijri.hYear.toString());
 
-    if (includeDay && hijri.wkDay != null && hijri.getDayName() != null) {
+    if (includeDay && hijri.wkDay != null) {
       final wkDayIndex = (hijri.wkDay! - 1).clamp(0, 6);
       final dayName = weekdaysArabic[wkDayIndex];
       return '$dayName، $day $monthName $year هـ';

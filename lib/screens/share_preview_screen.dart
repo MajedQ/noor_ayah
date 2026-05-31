@@ -119,7 +119,6 @@ class _SharePreviewScreenState extends State<SharePreviewScreen> {
                           builder: (context, constraints) {
                             // حساب المقياس المناسب للمعاينة
                             final screenWidth = constraints.maxWidth;
-                            final screenHeight = constraints.maxHeight;
 
                             // حساب المقياس بناءً على العرض فقط لملء الشاشة
                             final scale = (screenWidth - 16) / 1080;

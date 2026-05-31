@@ -16,7 +16,6 @@ class NotificationSettingsScreen extends StatefulWidget {
 class _NotificationSettingsScreenState
     extends State<NotificationSettingsScreen> {
   static const String _notificationEnabledKey = 'notificationsEnabled';
-  static const String _notificationTimeKey = 'notificationTime';
 
   bool _notificationsEnabled = false;
   TimeOfDay _selectedTime = const TimeOfDay(hour: 9, minute: 0);
