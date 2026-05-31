@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  analyze-and-test:
+    name: Analyze & Test (Flutter ${{ matrix.flutter-version }})
+    runs-on: ubuntu-latest
+    # وظيفة "stable" غير حاجبة: تعمل كإنذار مبكر لكسور التوافق مع أحدث Flutter
+    # دون منع الدمج، بينما يبقى الإصدار المستهدف 3.24.5 حاجبًا.
+    continue-on-error: ${{ matrix.flutter-version == 'stable' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        flutter-version: ['3.24.5', 'stable']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter ${{ matrix.flutter-version }}
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ matrix.flutter-version }}
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Generate localizations
+        run: flutter gen-l10n
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Run tests
+        run: flutter test --reporter expanded
