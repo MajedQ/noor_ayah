@@ -161,45 +161,31 @@ class _DuaSharePreviewScreenState extends State<DuaSharePreviewScreen> {
         children: [
           // معاينة القالب
           Expanded(
-            child: Center(
-              child: SingleChildScrollView(
-                child: Container(
-                  margin: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.3),
-                        blurRadius: 20,
-                        offset: const Offset(0, 10),
+            child: Stack(
+              children: [
+                // معاينة مطابقة تمامًا للصورة التي ستتم مشاركتها
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: FittedBox(
+                        fit: BoxFit.contain,
+                        child: _getTemplateWidget(),
                       ),
-                    ],
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Stack(
-                      children: [
-                        // معاينة مصغرة
-                        Transform.scale(
-                          scale: 0.3,
-                          child: Transform.translate(
-                            offset: const Offset(0, 0),
-                            child: _getTemplateWidget(),
-                          ),
-                        ),
-                        // Screenshot مخفي للحجم الكامل
-                        Positioned(
-                          left: -10000, // خارج الشاشة
-                          top: -10000,
-                          child: Screenshot(
-                            controller: _screenshotController,
-                            child: _getTemplateWidget(),
-                          ),
-                        ),
-                      ],
                     ),
                   ),
                 ),
-              ),
+                // Screenshot مخفي بالحجم الكامل لالتقاط صورة عالية الدقة
+                Positioned(
+                  left: -10000,
+                  top: -10000,
+                  child: Screenshot(
+                    controller: _screenshotController,
+                    child: _getTemplateWidget(),
+                  ),
+                ),
+              ],
             ),
           ),
 

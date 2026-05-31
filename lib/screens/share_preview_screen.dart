@@ -115,28 +115,17 @@ class _SharePreviewScreenState extends State<SharePreviewScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: _isSharing
                       ? const Center(child: CircularProgressIndicator())
-                      : LayoutBuilder(
-                          builder: (context, constraints) {
-                            // حساب المقياس المناسب للمعاينة
-                            final screenWidth = constraints.maxWidth;
-
-                            // حساب المقياس بناءً على العرض فقط لملء الشاشة
-                            final scale = (screenWidth - 16) / 1080;
-
-                            return Center(
-                              child: SingleChildScrollView(
-                                child: Transform.scale(
-                                  scale: scale,
-                                  child: SizedBox(
-                                    width: 1080,
-                                    height: 1920,
-                                    child:
-                                        _buildTemplate(fontProvider.fontFamily),
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
+                      // FittedBox يصغّر القالب مع الإبلاغ عن حجمه المُصغَّر،
+                      // فتظهر المعاينة مطابقة تمامًا للصورة التي ستتم مشاركتها.
+                      : Center(
+                          child: FittedBox(
+                            fit: BoxFit.contain,
+                            child: SizedBox(
+                              width: 1080,
+                              height: 1920,
+                              child: _buildTemplate(fontProvider.fontFamily),
+                            ),
+                          ),
                         ),
                 ),
               ),
