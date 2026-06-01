@@ -48,13 +48,13 @@ FLUTTER_ROOT="$(discover_flutter_root)"
 cd "$FLUTTER_ROOT"
 
 PUBSPEC="$FLUTTER_ROOT/pubspec.yaml"
-PUBSPEC_NAME="$(grep -E '^name:' "$PUBSPEC" | sed 's/name:[[:space:]]*//' | tr -d "'\"")
+PUBSPEC_NAME="$(grep -E '^name:' "$PUBSPEC" | sed 's/name:[[:space:]]*//' | tr -d "\"'")"
 TAG_PREFIX="$(echo "$PUBSPEC_NAME" | tr '_' '-')-v"
 APK_BASENAME="$(echo "$PUBSPEC_NAME" | tr '_' '-')"
 
 read_version() {
   local raw
-  raw="$(grep -E '^version:' "$PUBSPEC" | sed 's/version:[[:space:]]*//' | tr -d "'\"")
+  raw="$(grep -E '^version:' "$PUBSPEC" | sed 's/version:[[:space:]]*//' | tr -d "\"'")"
   if [[ "$raw" == *+* ]]; then
     VERSION_NAME="${raw%%+*}"
     BUILD_NUMBER="${raw#*+}"
