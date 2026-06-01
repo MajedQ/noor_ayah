@@ -8,7 +8,7 @@
 | `applicationId` | `com.noorayah.app` |
 | App name | نور آية |
 | `pubspec` name | `noor_ayah` |
-| pubspec version | `1.0.0` |
+| pubspec version | `1.0.2+2` |
 | Release tag prefix | `noor-ayah-v` |
 | APK pattern | `noor-ayah-v{X.Y.Z}-arm64-v8a.apk` |
 
